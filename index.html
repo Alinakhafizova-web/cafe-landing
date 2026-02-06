@@ -13,10 +13,13 @@ body {
   color: #333;
 }
 
-/* HERO */
+/* ===== HEADER ===== */
 header {
-  background: url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600") center/cover no-repeat;
-  height: 90vh;
+  background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+  url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600");
+  background-size: cover;
+  background-position: center;
+  height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,37 +27,65 @@ header {
   color: white;
 }
 
-.hero-box {
-  background: rgba(0,0,0,0.5);
-  padding: 40px;
-  border-radius: 12px;
+.hero {
+  max-width: 600px;
+  padding: 20px;
 }
 
-.hero-box h1 {
-  margin: 0 0 10px;
-  font-size: 42px;
+.hero h1 {
+  font-size: 44px;
+  margin-bottom: 10px;
 }
 
-.hero-btn {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 14px 28px;
-  background: #4a90e2;
-  color: white;
-  text-decoration: none;
+.hero p {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 14px 26px;
   border-radius: 8px;
+  text-decoration: none;
   font-weight: bold;
+  transition: 0.2s;
 }
 
-/* SECTIONS */
+.btn-primary {
+  background: #c59d5f;
+  color: white;
+}
+
+.btn-secondary {
+  background: white;
+  color: #333;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== SECTIONS ===== */
 section {
-  padding: 60px 20px;
-  max-width: 1000px;
+  padding: 70px 20px;
+  max-width: 1100px;
   margin: auto;
   text-align: center;
 }
 
-/* MENU */
+h2 {
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+/* ===== MENU ===== */
 .menu {
   display: grid;
   gap: 20px;
@@ -62,48 +93,47 @@ section {
 
 .card {
   display: flex;
-  gap: 16px;
-  align-items: center;
+  gap: 18px;
   background: white;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 18px;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
   text-align: left;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
 }
 
 .card img {
-  width: 90px;
-  height: 90px;
+  width: 95px;
+  height: 95px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
-/* GALLERY */
+/* ===== GALLERY ===== */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 14px;
-  margin-top: 20px;
 }
 
 .gallery img {
   width: 100%;
-  height: 180px;
+  height: 190px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 14px;
 }
 
-/* REVIEWS */
-.reviews {
-  margin-top: 20px;
-}
-
+/* ===== REVIEWS ===== */
 .review {
-  background: #fff;
-  padding: 16px;
-  border-radius: 12px;
+  background: white;
+  padding: 18px;
+  border-radius: 14px;
   margin-bottom: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.06);
   text-align: left;
 }
 
@@ -112,11 +142,9 @@ section {
   margin-bottom: 6px;
 }
 
-/* FORM */
+/* ===== FORM ===== */
 .review-form {
-  margin-top: 30px;
-  padding-top: 20px;
-  border-top: 2px solid #eee;
+  margin-top: 25px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -128,76 +156,99 @@ section {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  font-size: 16px;
+  font-size: 15px;
 }
 
 .review-form button {
-  background: #4a90e2;
+  background: #c59d5f;
   color: white;
   border: none;
   cursor: pointer;
 }
 
-/* FOOTER */
+/* ===== CONTACT BUTTONS ===== */
+.contact-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ===== FOOTER ===== */
 footer {
   background: #2b2b2b;
   color: white;
   padding: 30px;
   text-align: center;
+  margin-top: 40px;
 }
 
-/* MOBILE */
-@media (max-width: 600px) {
-  header { height: 70vh; }
-  .hero-box h1 { font-size: 30px; }
-  .card { flex-direction: column; text-align: center; }
+/* ===== MOBILE ===== */
+@media (max-width: 700px) {
+  .card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
 }
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <header>
-  <div class="hero-box">
+  <div class="hero">
     <h1>Между делом Café</h1>
-    <p>Уютная кофейня для встреч, работы и отдыха</p>
-    <a href="#menu" class="hero-btn">Смотреть меню</a>
+    <p>Уютное место для кофе, встреч и вдохновения</p>
+
+    <div class="hero-buttons">
+      <a href="#menu" class="btn btn-primary">Меню</a>
+      <a href="#contacts" class="btn btn-secondary">Забронировать</a>
+    </div>
   </div>
 </header>
 
+<!-- ABOUT -->
 <section>
-  <h2>О нас</h2>
-  <p>Свежий кофе, домашние десерты и атмосфера, в которую хочется возвращаться.</p>
+  <h2>О кофейне</h2>
+  <p>Свежая обжарка, домашние десерты и атмосфера,
+  в которую хочется возвращаться каждый день.</p>
 </section>
 
+<!-- MENU -->
 <section id="menu">
   <h2>Меню</h2>
 
   <div class="menu">
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=400">
       <div>
         <h3>Капучино</h3>
-        <p>Насыщенный эспрессо с нежной молочной пенкой</p>
+        <p>Эспрессо с нежной молочной пенкой</p>
         <strong>180 ₽</strong>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300">
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=400">
       <div>
         <h3>Латте</h3>
-        <p>Мягкий кофе с большим количеством горячего молока</p>
+        <p>Мягкий кофе с большим количеством молока</p>
         <strong>200 ₽</strong>
       </div>
     </div>
 
     <div class="card">
-      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=300">
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=400">
       <div>
         <h3>Раф</h3>
-        <p>Кофе со сливками и ванильным сахаром</p>
+        <p>Сливочный кофе с ванильным вкусом</p>
         <strong>220 ₽</strong>
       </div>
     </div>
@@ -205,46 +256,49 @@ footer {
   </div>
 </section>
 
+<!-- GALLERY -->
 <section>
   <h2>Галерея</h2>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=800">
-    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800">
-    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800">
+    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=800">
+    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800">
   </div>
 </section>
 
+<!-- REVIEWS -->
 <section>
   <h2>Отзывы гостей</h2>
 
-  <div class="reviews" id="reviews">
+  <div id="reviews">
     <div class="review">
       <div class="review-name">Мария:</div>
-      Очень уютная атмосфера и вкусный кофе ⭐⭐⭐⭐⭐
+      Очень уютно и невероятно вкусный кофе ⭐⭐⭐⭐⭐
     </div>
 
     <div class="review">
       <div class="review-name">Игорь:</div>
-      Отличное место, чтобы поработать за ноутбуком.
-    </div>
-
-    <div class="review">
-      <div class="review-name">Елена:</div>
-      Самый нежный капучино, который я пробовала ☕
+      Отличное место для работы за ноутбуком.
     </div>
   </div>
 
   <form class="review-form" onsubmit="addReview(event)">
-    <input type="text" id="name" placeholder="Ваше имя" required>
+    <input id="name" placeholder="Ваше имя" required>
     <textarea id="text" placeholder="Ваш отзыв" required></textarea>
-    <button type="submit">Оставить отзыв</button>
+    <button>Оставить отзыв</button>
   </form>
 </section>
 
-<section>
+<!-- CONTACTS -->
+<section id="contacts">
   <h2>Контакты</h2>
   <p>г. Томск, ул. Уютная, 7</p>
   <p>Телефон: +7 (900) 000-00-00</p>
+
+  <div class="contact-buttons">
+    <a class="btn btn-primary" href="#">Забронировать столик</a>
+    <a class="btn btn-secondary" href="#">Сделать заказ</a>
+  </div>
 </section>
 
 <footer>
@@ -252,19 +306,18 @@ footer {
 </footer>
 
 <script>
-function addReview(event) {
-  event.preventDefault();
+function addReview(e) {
+  e.preventDefault();
 
   const name = document.getElementById("name").value;
   const text = document.getElementById("text").value;
 
-  const review = document.createElement("div");
-  review.className = "review";
-  review.innerHTML = "<div class='review-name'>" + name + ":</div>" + text;
+  const div = document.createElement("div");
+  div.className = "review";
+  div.innerHTML = "<div class='review-name'>" + name + ":</div>" + text;
 
-  document.getElementById("reviews").appendChild(review);
-
-  event.target.reset();
+  document.getElementById("reviews").appendChild(div);
+  e.target.reset();
 }
 </script>
 
