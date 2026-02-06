@@ -133,17 +133,58 @@
 .booking button:hover {
   background: #357abd;
 }
+    /* Плавное появление */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+    /* Hero */
+.hero {
+  background: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.hero-btn {
+  background: #4a90e2;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero-btn:hover {
+  background: #357abd;
+}
   </style>
 </head>
 
 <body>
 
-<header>
-  <div class="hero">
-    <h1>Между делом Café</h1>
-    <p>Уютная кофейня для тёплых встреч</p>
-    <a href="#menu" class="btn">Посмотреть меню</a>
-  </div>
+<header class="hero">
+  <h1>Между Делом Café</h1>
+  <p>Уютная кофейня для встреч, работы и отдыха</p>
+  <a href="#menu" class="hero-btn">Смотреть меню</a>
 </header>
 
 <section>
@@ -156,7 +197,7 @@
 </section>
 
 <section id="menu">
-  <h2>Меню</h2>
+  <h2 id="menu" class="fade-in">Меню</h2>
 
   <div class="menu">
     <div class="card">
@@ -190,7 +231,7 @@
   © 2026 Между делом Café
 </footer>
 <!-- ГАЛЕРЕЯ -->
-<h2>Галерея</h2>
+<h2class="fade-in">Галерея</h2>
 <div class="gallery">
   <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Кофе">
   <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Интерьер">
@@ -198,7 +239,7 @@
 </div>
 
 <!-- ОТЗЫВЫ -->
-<h2>Отзывы гостей</h2>
+<h2class="fade-in">Отзывы гостей</h2>
 <div class="reviews">
   <div class="review">Очень уютное место и вкусный кофе! ⭐⭐⭐⭐⭐</div>
   <div class="review">Люблю приходить сюда работать за ноутбуком.</div>
@@ -206,7 +247,7 @@
 </div>
 
 <!-- БРОНИРОВАНИЕ -->
-<h2>Забронировать столик</h2>
+<h2class="fade-in">Забронировать столик</h2>
 <form class="booking">
   <input type="text" placeholder="Ваше имя" required>
   <input type="tel" placeholder="Телефон" required>
