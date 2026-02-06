@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Между делом Café</title>
 
-  <!-- Красивые шрифты -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
@@ -17,10 +16,8 @@
       scroll-behavior: smooth;
     }
 
-    /* HERO */
     header {
-      background: url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=1600&auto=format&fit=crop")
-      center/cover no-repeat;
+      background: url("https://picsum.photos/1600/900?coffee") center/cover no-repeat;
       height: 90vh;
       display: flex;
       align-items: center;
@@ -41,50 +38,22 @@
       margin-bottom: 10px;
     }
 
-    .hero-box p {
-      font-size: 18px;
-      margin-bottom: 20px;
-    }
-
     .hero-btn {
       background: #c59d5f;
       color: white;
       padding: 14px 28px;
       border-radius: 8px;
       text-decoration: none;
-      font-weight: 500;
       display: inline-block;
     }
 
-    .hero-btn:hover {
-      background: #a67c3c;
-    }
-
-    /* СЕКЦИИ */
     section {
       padding: 60px 20px;
       max-width: 900px;
       margin: auto;
       text-align: center;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 0.8s ease forwards;
     }
 
-    section:nth-of-type(1) { animation-delay: 0.2s; }
-    section:nth-of-type(2) { animation-delay: 0.4s; }
-    section:nth-of-type(3) { animation-delay: 0.6s; }
-    section:nth-of-type(4) { animation-delay: 0.8s; }
-    section:nth-of-type(5) { animation-delay: 1s; }
-
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* МЕНЮ */
     .menu {
       display: grid;
       gap: 20px;
@@ -97,7 +66,6 @@
       box-shadow: 0 6px 18px rgba(0,0,0,0.08);
     }
 
-    /* ГАЛЕРЕЯ */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -107,48 +75,41 @@
 
     .gallery img {
       width: 100%;
-      border-radius: 12px;
-      height: 140px;
+      height: 150px;
       object-fit: cover;
+      border-radius: 12px;
     }
 
-    /* ОТЗЫВЫ */
     .review {
       background: white;
       padding: 16px;
       border-radius: 12px;
       margin-bottom: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+      text-align: left;
     }
 
-    /* ФОРМА */
-    .booking {
+    .booking, .review-form {
       display: flex;
       flex-direction: column;
       gap: 10px;
       margin-top: 20px;
     }
 
-    .booking input,
-    .booking button {
+    input, textarea, button {
       padding: 12px;
       border-radius: 8px;
       border: 1px solid #ccc;
       font-size: 16px;
     }
 
-    .booking button {
+    button {
       background: #4a90e2;
       color: white;
       border: none;
       cursor: pointer;
     }
 
-    .booking button:hover {
-      background: #357abd;
-    }
-
-    /* FOOTER */
     footer {
       background: #2b2b2b;
       color: white;
@@ -157,22 +118,15 @@
       margin-top: 40px;
     }
 
-    /* МОБИЛКА */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 28px;
-      }
-
-      header {
-        height: 70vh;
-      }
+      h1 { font-size: 28px; }
+      header { height: 70vh; }
     }
   </style>
 </head>
 
 <body>
 
-<!-- HERO -->
 <header>
   <div class="hero-box">
     <h1>Между делом Café</h1>
@@ -181,64 +135,48 @@
   </div>
 </header>
 
-<!-- О НАС -->
 <section>
   <h2>О нас</h2>
-  <p>
-    Маленькая кофейня с большим вкусом.  
-    Свежий кофе, домашние десерты и атмосфера,  
-    в которую хочется возвращаться.
-  </p>
+  <p>Свежий кофе, домашние десерты и атмосфера, в которую хочется возвращаться.</p>
 </section>
 
-<!-- МЕНЮ -->
 <section id="menu">
   <h2>Меню</h2>
-
   <div class="menu">
-    <div class="card">
-      <h3>Капучино</h3>
-      <p>Эспрессо, горячее молоко и нежная молочная пенка</p>
-      <strong>180 ₽</strong>
-    </div>
-
-    <div class="card">
-      <h3>Латте</h3>
-      <p>Мягкий кофе с большим количеством молока</p>
-      <strong>200 ₽</strong>
-    </div>
-
-    <div class="card">
-      <h3>Чизкейк</h3>
-      <p>Домашний десерт с ягодным соусом</p>
-      <strong>220 ₽</strong>
-    </div>
+    <div class="card"><h3>Капучино</h3><p>Нежная молочная пенка</p><strong>180 ₽</strong></div>
+    <div class="card"><h3>Латте</h3><p>Мягкий вкус с молоком</p><strong>200 ₽</strong></div>
+    <div class="card"><h3>Чизкейк</h3><p>Домашний десерт</p><strong>220 ₽</strong></div>
   </div>
 </section>
 
-<!-- ГАЛЕРЕЯ -->
 <section>
   <h2>Галерея</h2>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Кофе">
-    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop" alt="Интерьер">
-    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop" alt="Десерт">
+    <img src="https://picsum.photos/300/200?coffee1">
+    <img src="https://picsum.photos/300/200?coffee2">
+    <img src="https://picsum.photos/300/200?coffee3">
   </div>
 </section>
 
-<!-- ОТЗЫВЫ -->
 <section>
   <h2>Отзывы гостей</h2>
 
   <div class="review">Очень уютное место и вкусный кофе! ⭐⭐⭐⭐⭐</div>
-  <div class="review">Люблю приходить сюда работать за ноутбуком.</div>
-  <div class="review">Лучший капучино в городе ☕</div>
+
+  <!-- ФОРМА ОТЗЫВА -->
+  <form class="review-form" onsubmit="addReview(event)">
+    <input type="text" id="name" placeholder="Ваше имя" required>
+    <textarea id="text" placeholder="Ваш отзыв" required></textarea>
+    <button type="submit">Оставить отзыв</button>
+  </form>
 </section>
 
-<!-- БРОНИРОВАНИЕ -->
 <section>
-  <h2>Забронировать столик</h2>
+  <h2>Контакты</h2>
+  <p>г. Томск, ул. Уютная, 7</p>
+  <p>Телефон: +7 (900) 000-00-00</p>
 
+  <h3>Забронировать столик</h3>
   <form class="booking">
     <input type="text" placeholder="Ваше имя" required>
     <input type="tel" placeholder="Телефон" required>
@@ -250,6 +188,23 @@
 <footer>
   © 2026 Между делом Café
 </footer>
+
+<script>
+function addReview(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const text = document.getElementById("text").value;
+
+  const review = document.createElement("div");
+  review.className = "review";
+  review.textContent = name + ": " + text;
+
+  document.querySelector(".review-form").before(review);
+
+  e.target.reset();
+}
+</script>
 
 </body>
 </html>
