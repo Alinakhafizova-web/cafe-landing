@@ -81,6 +81,58 @@
         height: 70vh;
       }
     }
+    /* Галерея */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Отзывы */
+.reviews {
+  margin-top: 20px;
+}
+
+.review {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Форма */
+.booking {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.booking input,
+.booking button {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.booking button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.booking button:hover {
+  background: #357abd;
+}
   </style>
 </head>
 
@@ -137,6 +189,29 @@
 <footer>
   © 2026 Между делом Café
 </footer>
+<!-- ГАЛЕРЕЯ -->
+<h2>Галерея</h2>
+<div class="gallery">
+  <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Кофе">
+  <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Интерьер">
+  <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Десерт">
+</div>
 
+<!-- ОТЗЫВЫ -->
+<h2>Отзывы гостей</h2>
+<div class="reviews">
+  <div class="review">Очень уютное место и вкусный кофе! ⭐⭐⭐⭐⭐</div>
+  <div class="review">Люблю приходить сюда работать за ноутбуком.</div>
+  <div class="review">Лучший капучино в городе ☕</div>
+</div>
+
+<!-- БРОНИРОВАНИЕ -->
+<h2>Забронировать столик</h2>
+<form class="booking">
+  <input type="text" placeholder="Ваше имя" required>
+  <input type="tel" placeholder="Телефон" required>
+  <input type="date" required>
+  <button type="submit">Отправить заявку</button>
+</form>
 </body>
 </html>
