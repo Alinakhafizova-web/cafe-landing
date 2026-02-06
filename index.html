@@ -13,9 +13,9 @@
       color: #333;
     }
 
+    /* HERO */
     header {
-      background: url("https://images.unsplash.com/photo-1509042239860-f550ce710b93")
-      center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb') center/cover no-repeat;
       height: 90vh;
       display: flex;
       align-items: center;
@@ -24,7 +24,7 @@
       color: white;
     }
 
-    .hero {
+    .hero-box {
       background: rgba(0,0,0,0.5);
       padding: 40px;
       border-radius: 12px;
@@ -32,20 +32,25 @@
 
     h1 {
       margin: 0 0 10px;
-      font-size: 40px;
+      font-size: 42px;
     }
 
-    .btn {
+    .hero-btn {
       display: inline-block;
       margin-top: 20px;
-      padding: 12px 24px;
+      padding: 14px 28px;
       background: #c59d5f;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 16px;
     }
 
+    .hero-btn:hover {
+      background: #a8844d;
+    }
+
+    /* СЕКЦИИ */
     section {
       padding: 60px 20px;
       max-width: 900px;
@@ -53,25 +58,79 @@
       text-align: center;
     }
 
+    /* МЕНЮ */
     .menu {
       display: grid;
       gap: 20px;
+      margin-top: 20px;
     }
 
     .card {
       background: white;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 12px;
       box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
+    /* ГАЛЕРЕЯ */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* ОТЗЫВЫ */
+    .review {
+      background: #fff;
+      padding: 16px;
+      border-radius: 10px;
+      margin-top: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    /* ФОРМА */
+    .booking {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .booking input,
+    .booking button {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .booking button {
+      background: #4a90e2;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    .booking button:hover {
+      background: #357abd;
+    }
+
+    /* ПОДВАЛ */
     footer {
       background: #2b2b2b;
       color: white;
       padding: 30px;
       text-align: center;
+      margin-top: 40px;
     }
 
+    /* АДАПТИВ */
     @media (max-width: 600px) {
       h1 {
         font-size: 28px;
@@ -81,110 +140,17 @@
         height: 70vh;
       }
     }
-    /* Галерея */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.gallery img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* Отзывы */
-.reviews {
-  margin-top: 20px;
-}
-
-.review {
-  background: #fff;
-  padding: 16px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-}
-
-/* Форма */
-.booking {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.booking input,
-.booking button {
-  padding: 12px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-}
-
-.booking button {
-  background: #4a90e2;
-  color: white;
-  border: none;
-  cursor: pointer;
-}
-
-.booking button:hover {
-  background: #357abd;
-}
-    /* Плавное появление */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s ease forwards;
-}
-
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-    /* Hero */
-.hero {
-  background: url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb') center/cover no-repeat;
-  color: white;
-  text-align: center;
-  padding: 100px 20px;
-}
-
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 20px;
-  margin-bottom: 20px;
-}
-
-.hero-btn {
-  background: #4a90e2;
-  color: white;
-  padding: 14px 28px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.hero-btn:hover {
-  background: #357abd;
-}
   </style>
 </head>
 
 <body>
 
-<header class="hero">
-  <h1>Между Делом Café</h1>
-  <p>Уютная кофейня для встреч, работы и отдыха</p>
-  <a href="#menu" class="hero-btn">Смотреть меню</a>
+<header>
+  <div class="hero-box">
+    <h1>Между делом Café</h1>
+    <p>Уютная кофейня для встреч, работы и отдыха</p>
+    <a href="#menu" class="hero-btn">Смотреть меню</a>
+  </div>
 </header>
 
 <section>
@@ -197,7 +163,7 @@
 </section>
 
 <section id="menu">
-  <h2 id="menu" class="fade-in">Меню</h2>
+  <h2>Меню</h2>
 
   <div class="menu">
     <div class="card">
@@ -221,38 +187,40 @@
 </section>
 
 <section>
+  <h2>Галерея</h2>
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Кофе">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Интерьер">
+    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Десерт">
+  </div>
+</section>
+
+<section>
+  <h2>Отзывы гостей</h2>
+  <div class="review">Очень уютное место и вкусный кофе! ⭐⭐⭐⭐⭐</div>
+  <div class="review">Люблю приходить сюда работать за ноутбуком.</div>
+  <div class="review">Лучший капучино в городе ☕</div>
+</section>
+
+<section>
+  <h2>Забронировать столик</h2>
+  <form class="booking">
+    <input type="text" placeholder="Ваше имя" required>
+    <input type="tel" placeholder="Телефон" required>
+    <input type="date" required>
+    <button type="submit">Отправить заявку</button>
+  </form>
+</section>
+
+<section>
   <h2>Контакты</h2>
   <p>г. Томск, ул. Уютная, 7</p>
   <p>Телефон: +7 (900) 000-00-00</p>
-  <a href="#" class="btn">Забронировать столик</a>
 </section>
 
 <footer>
   © 2026 Между делом Café
 </footer>
-<!-- ГАЛЕРЕЯ -->
-<h2class="fade-in">Галерея</h2>
-<div class="gallery">
-  <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Кофе">
-  <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085" alt="Интерьер">
-  <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Десерт">
-</div>
 
-<!-- ОТЗЫВЫ -->
-<h2class="fade-in">Отзывы гостей</h2>
-<div class="reviews">
-  <div class="review">Очень уютное место и вкусный кофе! ⭐⭐⭐⭐⭐</div>
-  <div class="review">Люблю приходить сюда работать за ноутбуком.</div>
-  <div class="review">Лучший капучино в городе ☕</div>
-</div>
-
-<!-- БРОНИРОВАНИЕ -->
-<h2class="fade-in">Забронировать столик</h2>
-<form class="booking">
-  <input type="text" placeholder="Ваше имя" required>
-  <input type="tel" placeholder="Телефон" required>
-  <input type="date" required>
-  <button type="submit">Отправить заявку</button>
-</form>
 </body>
 </html>
