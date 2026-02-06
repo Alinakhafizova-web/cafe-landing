@@ -1,128 +1,140 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Между делом Café</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Между делом Café</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f6f3ef;
+  color: #333;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom, #f6f3ef, #e8dfd4);
-      color: #333;
-      scroll-behavior: smooth;
-    }
+/* HERO */
+header {
+  background: url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb") center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
 
-    header {
-      background: url("https://picsum.photos/1600/900?coffee") center/cover no-repeat;
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: white;
-    }
+.hero-box {
+  background: rgba(0,0,0,0.5);
+  padding: 40px;
+  border-radius: 12px;
+}
 
-    .hero-box {
-      background: rgba(0,0,0,0.45);
-      padding: 40px;
-      border-radius: 14px;
-    }
+.hero-box h1 {
+  margin: 0 0 10px;
+  font-size: 42px;
+}
 
-    h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 42px;
-      margin-bottom: 10px;
-    }
+.hero-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 14px 28px;
+  background: #4a90e2;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
 
-    .hero-btn {
-      background: #c59d5f;
-      color: white;
-      padding: 14px 28px;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-    }
+/* SECTIONS */
+section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
 
-    section {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: auto;
-      text-align: center;
-    }
+/* MENU */
+.menu {
+  display: grid;
+  gap: 20px;
+}
 
-    .menu {
-      display: grid;
-      gap: 20px;
-    }
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
 
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    }
+/* GALLERY */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 14px;
-      margin-top: 20px;
-    }
+.gallery img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
 
-    .gallery img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 12px;
-    }
+/* REVIEWS */
+.reviews {
+  margin-top: 20px;
+}
 
-    .review {
-      background: white;
-      padding: 16px;
-      border-radius: 12px;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      text-align: left;
-    }
+.review {
+  background: #fff;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
 
-    .booking, .review-form {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 20px;
-    }
+/* REVIEW FORM */
+.review-form {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-    input, textarea, button {
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
+.review-form input,
+.review-form textarea,
+.review-form button {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
 
-    button {
-      background: #4a90e2;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
+.review-form button {
+  background: #4a90e2;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
 
-    footer {
-      background: #2b2b2b;
-      color: white;
-      padding: 30px;
-      text-align: center;
-      margin-top: 40px;
-    }
+/* FOOTER */
+footer {
+  background: #2b2b2b;
+  color: white;
+  padding: 30px;
+  text-align: center;
+}
 
-    @media (max-width: 600px) {
-      h1 { font-size: 28px; }
-      header { height: 70vh; }
-    }
-  </style>
+/* MOBILE */
+@media (max-width: 600px) {
+  header { height: 70vh; }
+  .hero-box h1 { font-size: 30px; }
+}
+</style>
 </head>
 
 <body>
@@ -142,28 +154,63 @@
 
 <section id="menu">
   <h2>Меню</h2>
+
   <div class="menu">
-    <div class="card"><h3>Капучино</h3><p>Нежная молочная пенка</p><strong>180 ₽</strong></div>
-    <div class="card"><h3>Латте</h3><p>Мягкий вкус с молоком</p><strong>200 ₽</strong></div>
-    <div class="card"><h3>Чизкейк</h3><p>Домашний десерт</p><strong>220 ₽</strong></div>
+    <div class="card">
+      <h3>Капучино</h3>
+      <p>Насыщенный эспрессо с нежной молочной пенкой</p>
+      <strong>180 ₽</strong>
+    </div>
+
+    <div class="card">
+      <h3>Латте</h3>
+      <p>Мягкий кофе с большим количеством горячего молока</p>
+      <strong>200 ₽</strong>
+    </div>
+
+    <div class="card">
+      <h3>Раф</h3>
+      <p>Кофе со сливками и ванильным сахаром</p>
+      <strong>220 ₽</strong>
+    </div>
+
+    <div class="card">
+      <h3>Американо</h3>
+      <p>Классический чёрный кофе с мягким вкусом</p>
+      <strong>150 ₽</strong>
+    </div>
+
+    <div class="card">
+      <h3>Чизкейк</h3>
+      <p>Нежный сливочный десерт с ягодным соусом</p>
+      <strong>220 ₽</strong>
+    </div>
+
+    <div class="card">
+      <h3>Круассан</h3>
+      <p>Свежая французская выпечка с хрустящей корочкой</p>
+      <strong>160 ₽</strong>
+    </div>
   </div>
 </section>
 
 <section>
   <h2>Галерея</h2>
   <div class="gallery">
-    <img src="https://picsum.photos/300/200?coffee1">
-    <img src="https://picsum.photos/300/200?coffee2">
-    <img src="https://picsum.photos/300/200?coffee3">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
   </div>
 </section>
 
 <section>
   <h2>Отзывы гостей</h2>
 
-  <div class="review">Очень уютное место и вкусный кофе! ⭐⭐⭐⭐⭐</div>
+  <div class="reviews" id="reviews">
+    <div class="review">Очень уютное место и вкусный кофе ⭐⭐⭐⭐⭐</div>
+    <div class="review">Лучшее место для утреннего капучино — Алина</div>
+  </div>
 
-  <!-- ФОРМА ОТЗЫВА -->
   <form class="review-form" onsubmit="addReview(event)">
     <input type="text" id="name" placeholder="Ваше имя" required>
     <textarea id="text" placeholder="Ваш отзыв" required></textarea>
@@ -175,14 +222,6 @@
   <h2>Контакты</h2>
   <p>г. Томск, ул. Уютная, 7</p>
   <p>Телефон: +7 (900) 000-00-00</p>
-
-  <h3>Забронировать столик</h3>
-  <form class="booking">
-    <input type="text" placeholder="Ваше имя" required>
-    <input type="tel" placeholder="Телефон" required>
-    <input type="date" required>
-    <button type="submit">Отправить заявку</button>
-  </form>
 </section>
 
 <footer>
@@ -190,8 +229,8 @@
 </footer>
 
 <script>
-function addReview(e) {
-  e.preventDefault();
+function addReview(event) {
+  event.preventDefault();
 
   const name = document.getElementById("name").value;
   const text = document.getElementById("text").value;
@@ -200,9 +239,9 @@ function addReview(e) {
   review.className = "review";
   review.textContent = name + ": " + text;
 
-  document.querySelector(".review-form").before(review);
+  document.getElementById("reviews").appendChild(review);
 
-  e.target.reset();
+  event.target.reset();
 }
 </script>
 
