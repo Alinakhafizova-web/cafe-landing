@@ -15,7 +15,7 @@ body {
 
 /* HERO */
 header {
-  background: url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb") center/cover no-repeat;
+  background: url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1600") center/cover no-repeat;
   height: 90vh;
   display: flex;
   align-items: center;
@@ -49,7 +49,7 @@ header {
 /* SECTIONS */
 section {
   padding: 60px 20px;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
   text-align: center;
 }
@@ -61,25 +61,36 @@ section {
 }
 
 .card {
+  display: flex;
+  gap: 16px;
+  align-items: center;
   background: white;
-  padding: 20px;
+  padding: 16px;
   border-radius: 12px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.card img {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 /* GALLERY */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
   margin-top: 20px;
 }
 
 .gallery img {
   width: 100%;
-  height: 140px;
+  height: 180px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 /* REVIEWS */
@@ -90,12 +101,18 @@ section {
 .review {
   background: #fff;
   padding: 16px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  border-radius: 12px;
+  margin-bottom: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  text-align: left;
 }
 
-/* REVIEW FORM */
+.review-name {
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+/* FORM */
 .review-form {
   margin-top: 30px;
   padding-top: 20px;
@@ -133,6 +150,7 @@ footer {
 @media (max-width: 600px) {
   header { height: 70vh; }
   .hero-box h1 { font-size: 30px; }
+  .card { flex-direction: column; text-align: center; }
 }
 </style>
 </head>
@@ -156,50 +174,43 @@ footer {
   <h2>Меню</h2>
 
   <div class="menu">
+
     <div class="card">
-      <h3>Капучино</h3>
-      <p>Насыщенный эспрессо с нежной молочной пенкой</p>
-      <strong>180 ₽</strong>
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=300">
+      <div>
+        <h3>Капучино</h3>
+        <p>Насыщенный эспрессо с нежной молочной пенкой</p>
+        <strong>180 ₽</strong>
+      </div>
     </div>
 
     <div class="card">
-      <h3>Латте</h3>
-      <p>Мягкий кофе с большим количеством горячего молока</p>
-      <strong>200 ₽</strong>
+      <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=300">
+      <div>
+        <h3>Латте</h3>
+        <p>Мягкий кофе с большим количеством горячего молока</p>
+        <strong>200 ₽</strong>
+      </div>
     </div>
 
     <div class="card">
-      <h3>Раф</h3>
-      <p>Кофе со сливками и ванильным сахаром</p>
-      <strong>220 ₽</strong>
+      <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=300">
+      <div>
+        <h3>Раф</h3>
+        <p>Кофе со сливками и ванильным сахаром</p>
+        <strong>220 ₽</strong>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Американо</h3>
-      <p>Классический чёрный кофе с мягким вкусом</p>
-      <strong>150 ₽</strong>
-    </div>
-
-    <div class="card">
-      <h3>Чизкейк</h3>
-      <p>Нежный сливочный десерт с ягодным соусом</p>
-      <strong>220 ₽</strong>
-    </div>
-
-    <div class="card">
-      <h3>Круассан</h3>
-      <p>Свежая французская выпечка с хрустящей корочкой</p>
-      <strong>160 ₽</strong>
-    </div>
   </div>
 </section>
 
 <section>
   <h2>Галерея</h2>
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
-    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
-    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
+    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=800">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800">
+    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=800">
   </div>
 </section>
 
@@ -207,8 +218,20 @@ footer {
   <h2>Отзывы гостей</h2>
 
   <div class="reviews" id="reviews">
-    <div class="review">Очень уютное место и вкусный кофе ⭐⭐⭐⭐⭐</div>
-    <div class="review">Лучшее место для утреннего капучино — Алина</div>
+    <div class="review">
+      <div class="review-name">Мария:</div>
+      Очень уютная атмосфера и вкусный кофе ⭐⭐⭐⭐⭐
+    </div>
+
+    <div class="review">
+      <div class="review-name">Игорь:</div>
+      Отличное место, чтобы поработать за ноутбуком.
+    </div>
+
+    <div class="review">
+      <div class="review-name">Елена:</div>
+      Самый нежный капучино, который я пробовала ☕
+    </div>
   </div>
 
   <form class="review-form" onsubmit="addReview(event)">
@@ -237,7 +260,7 @@ function addReview(event) {
 
   const review = document.createElement("div");
   review.className = "review";
-  review.textContent = name + ": " + text;
+  review.innerHTML = "<div class='review-name'>" + name + ":</div>" + text;
 
   document.getElementById("reviews").appendChild(review);
 
