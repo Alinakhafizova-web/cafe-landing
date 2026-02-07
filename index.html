@@ -9,7 +9,7 @@
 body{
   margin:0;
   font-family: system-ui, Arial, sans-serif;
-  background:#f3e9dc;
+  background:#f6efe6;
   color:#2b2b2b;
 }
 
@@ -18,7 +18,7 @@ nav{
   position:fixed;
   top:0;
   width:100%;
-  background:rgba(255,255,255,0.92);
+  background:rgba(255,255,255,0.9);
   backdrop-filter:blur(8px);
   display:flex;
   justify-content:space-between;
@@ -36,20 +36,16 @@ nav a{
   transition:.25s;
 }
 
-nav a:hover{
-  color:#c08a5b;
-}
+nav a:hover{ color:#b07a4f; }
 
 .nav-btn{
-  background:#c08a5b;
+  background:#b07a4f;
   color:white!important;
   padding:9px 16px;
   border-radius:10px;
 }
 
-.nav-btn:hover{
-  background:#a06f46;
-}
+.nav-btn:hover{ background:#8f603c; }
 
 /* ===== HERO ===== */
 header{
@@ -64,83 +60,52 @@ header{
 }
 
 .hero{
-  background:rgba(0,0,0,0.45);
+  background:rgba(60,40,20,0.45);
   padding:50px;
   border-radius:20px;
   color:white;
-  animation:fadeUp 1s ease forwards;
 }
 
 .hero h1{font-size:48px;margin-bottom:10px;}
-.hero p{opacity:.9;font-size:18px;}
+.hero p{opacity:.95;font-size:18px;}
 
 .btn{
   display:inline-block;
   margin-top:22px;
   padding:14px 28px;
-  background:#c08a5b;
+  background:#b07a4f;
   color:white;
   text-decoration:none;
   border-radius:12px;
   font-weight:600;
   transition:.25s;
 }
-.btn:hover{background:#a06f46;}
+.btn:hover{ background:#8f603c; }
 
 /* ===== SECTIONS ===== */
 section{
   padding:90px 20px;
-  max-width:1100px;
+  max-width:900px;
   margin:auto;
   text-align:center;
-  opacity:0;
-  transform:translateY(30px);
-  transition:all .8s ease;
-}
-section.show{
-  opacity:1;
-  transform:translateY(0);
 }
 
 /* ===== MENU ===== */
-.menu-section{
-  background:url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop")
-  center/cover no-repeat;
-}
-
-.menu-wrap{
-  background:rgba(255,255,255,0.94);
-  padding:45px;
-  border-radius:22px;
-}
-
 .menu{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:22px;
   margin-top:30px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
 }
 
-.card{
-  background:white;
-  padding:22px;
-  border-radius:16px;
-  box-shadow:0 8px 20px rgba(0,0,0,0.08);
-}
-
-/* ===== GALLERY ===== */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
-  margin-top:30px;
-}
-
-.gallery img{
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:16px;
+.menu-item{
+  background:#fff7ef;
+  padding:16px 20px;
+  border-radius:14px;
+  display:flex;
+  justify-content:space-between;
+  font-size:17px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
 /* ===== REVIEWS ===== */
@@ -180,13 +145,12 @@ section.show{
   padding:14px;
   border:none;
   border-radius:12px;
-  background:#c08a5b;
+  background:#b07a4f;
   color:white;
   font-size:15px;
   cursor:pointer;
-  transition:.25s;
 }
-.form button:hover{background:#a06f46;}
+.form button:hover{ background:#8f603c; }
 
 /* ===== FOOTER ===== */
 footer{
@@ -194,18 +158,12 @@ footer{
   color:#eee;
   text-align:center;
   padding:40px 20px;
-}
-
-/* ===== ANIMATION ===== */
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(40px);}
-  to{opacity:1;transform:translateY(0);}
+  line-height:1.6;
 }
 
 /* ===== MOBILE ===== */
 @media(max-width:600px){
   .hero h1{font-size:32px;}
-  header{height:90vh;}
 }
 </style>
 </head>
@@ -224,40 +182,27 @@ footer{
 <header>
   <div class="hero">
     <h1>Между делом Café</h1>
-    <p>Тёплый кофе, десерты и спокойная атмосфера</p>
+    <p>Тёплый кофе, десерты и приятная атмосфера</p>
     <a href="#menu" class="btn">Смотреть меню</a>
   </div>
 </header>
 
-<section>
-  <h2>О кофейне</h2>
-  <p>Уютное пространство для встреч, работы и отдыха в центре города.</p>
-</section>
+<section id="menu">
+  <h2>Меню</h2>
 
-<section id="menu" class="menu-section">
-  <div class="menu-wrap">
-    <h2>Меню</h2>
-
-    <div class="menu">
-      <div class="card"><h3>Капучино</h3><p>Эспрессо с бархатной молочной пенкой</p><strong>180 ₽</strong></div>
-      <div class="card"><h3>Латте</h3><p>Мягкий кофейно-молочный вкус</p><strong>200 ₽</strong></div>
-      <div class="card"><h3>Раф</h3><p>Сливочный кофе с ванилью</p><strong>220 ₽</strong></div>
-      <div class="card"><h3>Американо</h3><p>Классический чёрный кофе</p><strong>160 ₽</strong></div>
-      <div class="card"><h3>Чизкейк</h3><p>Нежный сливочный десерт</p><strong>230 ₽</strong></div>
-      <div class="card"><h3>Круассан</h3><p>Свежая хрустящая выпечка</p><strong>140 ₽</strong></div>
-    </div>
-
-    <a href="https://t.me/Alina_Khafizova_R" target="_blank" class="btn">Забронировать столик</a>
+  <div class="menu">
+    <div class="menu-item"><span>Эспрессо</span><strong>140 ₽</strong></div>
+    <div class="menu-item"><span>Американо</span><strong>160 ₽</strong></div>
+    <div class="menu-item"><span>Капучино</span><strong>180 ₽</strong></div>
+    <div class="menu-item"><span>Латте</span><strong>200 ₽</strong></div>
+    <div class="menu-item"><span>Раф ванильный</span><strong>220 ₽</strong></div>
+    <div class="menu-item"><span>Флэт уайт</span><strong>210 ₽</strong></div>
+    <div class="menu-item"><span>Чизкейк</span><strong>230 ₽</strong></div>
+    <div class="menu-item"><span>Морковный торт</span><strong>240 ₽</strong></div>
+    <div class="menu-item"><span>Круассан</span><strong>140 ₽</strong></div>
   </div>
-</section>
 
-<section>
-  <h2>Галерея</h2>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop">
-    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=800&auto=format&fit=crop">
-    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop">
-  </div>
+  <a href="https://t.me/Alina_Khafizova_R" target="_blank" class="btn">Забронировать столик</a>
 </section>
 
 <section id="reviews">
@@ -278,23 +223,16 @@ footer{
 </section>
 
 <footer>
-  <p>г. Томск • ежедневно 9:00–21:00</p>
+  <p>г. Томск, ул. Уютная, д. 7</p>
+  <p>
+    Пн–Пт: 8:00–21:00<br>
+    Сб: 9:00–22:00<br>
+    Вс: 9:00–20:00
+  </p>
   <p>© 2026 Между делом Café</p>
 </footer>
 
 <script>
-/* анимация появления */
-const sections=document.querySelectorAll("section");
-window.addEventListener("scroll",()=>{
-  const trigger=window.innerHeight*0.85;
-  sections.forEach(sec=>{
-    if(sec.getBoundingClientRect().top<trigger){
-      sec.classList.add("show");
-    }
-  });
-});
-
-/* добавление отзыва */
 function addReview(){
   const name=document.getElementById("name").value.trim();
   const text=document.getElementById("text").value.trim();
