@@ -1,206 +1,239 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Между делом Café</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Между делом Café</title>
 
-<style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f5efe7;
-color:#333;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5efe7;
+      color: #333;
+    }
 
-/* HERO */
-header{
-background:url("images/hero.jpg") center/cover no-repeat;
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-color:white;
-}
+    h1, h2, h3 {
+      margin: 0 0 10px;
+    }
 
-.hero-box{
-background:rgba(0,0,0,0.45);
-padding:40px;
-border-radius:16px;
-}
+    section {
+      padding: 70px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
 
-.hero-box h1{
-font-size:42px;
-margin-bottom:10px;
-}
+    /* HERO */
+    header {
+      background: url("https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb") center/cover no-repeat;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-.btn{
-display:inline-block;
-margin-top:15px;
-padding:14px 28px;
-background:#6b4f3a;
-color:white;
-text-decoration:none;
-border-radius:10px;
-}
+    .hero-box {
+      background: rgba(0,0,0,0.45);
+      padding: 50px;
+      border-radius: 16px;
+      color: white;
+    }
 
-/* SECTION */
-section{
-padding:70px 20px;
-max-width:1000px;
-margin:auto;
-text-align:center;
-}
-.menu-section {
-  background: url("images/interior.jpg") center/cover no-repeat;
-  padding: 80px 20px;
-}
-  .menu-wrapper {
-  background: rgba(255,255,255,0.9);
-  padding: 40px;
-  border-radius: 16px;
-}
-/* MENU */
-.menu{
-display:grid;
-gap:20px;
-}
+    .hero-box h1 {
+      font-size: 44px;
+    }
 
-.card{
-background:white;
-padding:20px;
-border-radius:14px;
-box-shadow:0 6px 18px rgba(0,0,0,0.08);
-}
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 28px;
+      background: #8c6b4f;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
 
-.card img{
-width:100%;
-border-radius:10px;
-margin-bottom:10px;
-}
+    .btn:hover {
+      background: #6f533c;
+    }
 
-/* GALLERY */
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:12px;
-}
+    /* MENU BACKGROUND */
+    .menu-section {
+      background: url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085") center/cover no-repeat;
+    }
 
-.gallery img{
-width:100%;
-border-radius:12px;
-}
+    .menu-wrapper {
+      background: rgba(255,255,255,0.92);
+      padding: 40px;
+      border-radius: 20px;
+    }
 
-/* REVIEWS */
-.review{
-background:white;
-padding:16px;
-border-radius:12px;
-margin-bottom:12px;
-box-shadow:0 4px 12px rgba(0,0,0,0.06);
-text-align:left;
-}
+    .menu {
+      display: grid;
+      gap: 20px;
+      margin-top: 30px;
+    }
 
-.review b{
-display:block;
-margin-bottom:6px;
-}
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
 
-/* BOOKING */
-.booking{
-background:#fff8f0;
-padding:30px;
-border-radius:16px;
-margin-top:30px;
-}
+    /* GALLERY */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
 
-.booking input{
-width:100%;
-padding:12px;
-margin-bottom:10px;
-border-radius:8px;
-border:1px solid #ccc;
-}
+    .gallery img {
+      width: 100%;
+      border-radius: 14px;
+    }
 
-footer{
-background:#2b2b2b;
-color:white;
-padding:30px;
-text-align:center;
-}
-</style>
+    /* REVIEWS */
+    .reviews {
+      margin-top: 30px;
+      text-align: left;
+    }
+
+    .review {
+      background: #fff;
+      padding: 16px;
+      border-radius: 12px;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .review strong {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    /* REVIEW FORM */
+    .review-form {
+      margin-top: 40px;
+      padding: 25px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .review-form input,
+    .review-form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+
+    .review-form button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background: #8c6b4f;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #2f2a25;
+      color: #eee;
+      text-align: center;
+      padding: 35px 20px;
+      margin-top: 40px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .hero-box h1 {
+        font-size: 30px;
+      }
+
+      header {
+        height: 75vh;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
 <header>
-<div class="hero-box">
-<h1>Между делом Café</h1>
-<p>Уютная кофейня для встреч и отдыха</p>
-<a class="btn" href="#menu">Смотреть меню</a>
-<a class="btn" href="https://t.me/Alina_Khafizova_R" target="_blank">Забронировать в Telegram</a>
-</div>
+  <div class="hero-box">
+    <h1>Между делом Café</h1>
+    <p>Уютное место для кофе, встреч и спокойной работы</p>
+    <a href="#menu" class="btn">Смотреть меню</a>
+  </div>
 </header>
+
+<section>
+  <h2>О нас</h2>
+  <p>
+    Небольшая кофейня с тёплой атмосферой, ароматным кофе  
+    и десертами, которые хочется заказывать снова.
+  </p>
+</section>
 
 <section id="menu" class="menu-section">
   <div class="menu-wrapper">
-<h2>Меню</h2>
+    <h2>Меню</h2>
 
-<div class="menu">
+    <div class="menu">
+      <div class="card"><h3>Капучино</h3><p>Эспрессо с нежной молочной пенкой</p><strong>180 ₽</strong></div>
+      <div class="card"><h3>Латте</h3><p>Мягкий кофейный вкус с большим количеством молока</p><strong>200 ₽</strong></div>
+      <div class="card"><h3>Раф</h3><p>Кофе со сливками и лёгкой ванильной сладостью</p><strong>220 ₽</strong></div>
+      <div class="card"><h3>Американо</h3><p>Классический чёрный кофе с насыщенным ароматом</p><strong>160 ₽</strong></div>
+      <div class="card"><h3>Чизкейк</h3><p>Нежный сливочный десерт с ягодным соусом</p><strong>230 ₽</strong></div>
+      <div class="card"><h3>Круассан</h3><p>Свежая выпечка с хрустящей корочкой</p><strong>140 ₽</strong></div>
+    </div>
 
-<div class="card">
-<img src="images/cappuccino.jpg">
-<h3>Капучино</h3>
-<p>Сбалансированный кофе с нежной молочной пенкой.</p>
-<strong>180 ₽</strong>
-</div>
-
-<div class="card">
-<img src="images/latte.jpg">
-<h3>Латте</h3>
-<p>Мягкий сливочный вкус с лёгкой кофейной ноткой.</p>
-<strong>200 ₽</strong>
-</div>
-
-<div class="card">
-<img src="images/cheesecake.jpg">
-<h3>Чизкейк</h3>
-<p>Нежный десерт с ягодным соусом.</p>
-<strong>220 ₽</strong>
-</div>
-
-</div>
+    <a href="https://t.me/Alina_Khafizova_R" class="btn" target="_blank">Забронировать через Telegram</a>
+  </div>
 </section>
 
 <section>
-<h2>Галерея</h2>
-<div class="gallery">
-<img src="images/g1.jpg">
-<img src="images/g2.jpg">
-<img src="images/g3.jpg">
-</div>
+  <h2>Галерея</h2>
+
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93">
+    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085">
+    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348">
+  </div>
 </section>
 
 <section>
-<h2>Отзывы гостей</h2>
+  <h2>Отзывы гостей</h2>
 
-<div class="review"><b>Анна:</b> Очень уютное место и вкусный кофе ☕</div>
-<div class="review"><b>Игорь:</b> Отлично подходит для работы за ноутбуком.</div>
-<div class="review"><b>Мария:</b> Лучший капучино в районе!</div>
+  <div class="reviews">
+    <div class="review"><strong>Анна:</strong> Очень уютная атмосфера и вкусный капучино!</div>
+    <div class="review"><strong>Игорь:</strong> Отличное место, чтобы спокойно поработать с ноутбуком.</div>
+    <div class="review"><strong>Мария:</strong> Десерты просто великолепные, вернусь ещё.</div>
+  </div>
 
-<div class="booking">
-<h3>Оставить отзыв</h3>
-<input placeholder="Ваше имя">
-<input placeholder="Ваш отзыв">
-<a class="btn" href="https://t.me/Alina_Khafizova_R" target="_blank">Отправить в Telegram</a>
-</div>
-
+  <div class="review-form">
+    <h3>Оставить отзыв</h3>
+    <input type="text" placeholder="Ваше имя">
+    <textarea rows="3" placeholder="Ваш отзыв"></textarea>
+    <button>Отправить</button>
+  </div>
 </section>
 
 <footer>
-г. Томск • +7 (900) 000-00-00  
-<br>© 2026 Между делом Café
+  <p>г. Томск • Ежедневно 9:00–21:00</p>
+  <p>© 2026 Между делом Café</p>
 </footer>
 
 </body>
