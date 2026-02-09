@@ -49,31 +49,57 @@ nav a:hover{ color:#b07a4f; }
 .nav-btn:hover{ background:#8f603c; }
 
 /* ===== HERO ===== */
-header{
-  height:100vh;
+/* ===== HERO ===== */
+.hero-section{
   min-height:100vh;
 
-  background:url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1600&auto=format&fit=crop")
-  center center / cover no-repeat;
+  background:
+    linear-gradient(rgba(60,40,20,0.45), rgba(60,40,20,0.45)),
+    url("https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1600&auto=format&fit=crop")
+    center/cover no-repeat;
 
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
 
-  padding:0 20px;
+  padding:80px 20px 40px;
   box-sizing:border-box;
 }
 
-.hero{
-  background:rgba(60,40,20,0.45);
-  padding:50px;
-  border-radius:20px;
+.hero-overlay{
   color:white;
+  max-width:640px;
+}
 
-  max-width:600px;
-  width:100%;
-  box-sizing:border-box;
+.hero-overlay h1{
+  font-size:48px;
+  margin-bottom:16px;
+}
+
+.hero-overlay p{
+  font-size:18px;
+  line-height:1.5;
+  opacity:0.95;
+}
+
+/* главная кнопка */
+.btn-main{
+  display:inline-block;
+  margin-top:26px;
+  padding:16px 34px;
+  background:#c89b6d;
+  color:white;
+  text-decoration:none;
+  border-radius:14px;
+  font-size:16px;
+  font-weight:600;
+  transition:.25s;
+}
+
+.btn-main:hover{
+  background:#a97e54;
+  transform:translateY(-2px);
 }
 
 .hero h1{font-size:48px;margin-bottom:10px;}
@@ -189,11 +215,18 @@ footer{
   </div>
 </nav>
 
-<header>
-  <div class="hero">
-    <h1>Между делом Café</h1>
-    <p>Тёплый кофе, десерты и приятная атмосфера</p>
-    <a href="#menu" class="btn">Смотреть меню</a>
+<header class="hero-section">
+  <div class="hero-overlay">
+    <h1>Уютная кофейня в Томске</h1>
+
+    <p>
+      Свежий кофе, домашние десерты  
+      и приятная атмосфера для встреч и отдыха
+    </p>
+
+    <a href="https://t.me/Alina_Khafizova_R" target="_blank" class="btn-main">
+      Забронировать столик
+    </a>
   </div>
 </header>
 
