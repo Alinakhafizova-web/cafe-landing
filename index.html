@@ -6,17 +6,18 @@
   <title>Между делом Café</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* --- Основные стили --- */
+    /* --- Общие стили --- */
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      margin: 0;
       font-family: 'Roboto', sans-serif;
-      color: #4B3B2E;
       background-color: #FAF5F0;
-      scroll-behavior: smooth;
+      color: #4B3B2E;
+      line-height: 1.6;
     }
 
     a {
@@ -25,14 +26,13 @@
     }
 
     img {
-      max-width: 100%;
-      height: auto;
       display: block;
+      max-width: 100%;
+      border-radius: 12px;
     }
 
     h1, h2 {
       font-family: 'Playfair Display', serif;
-      margin: 0;
     }
 
     section {
@@ -45,8 +45,8 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      padding: 80px 20px;
       background-color: #F7EFE8;
+      padding: 80px 20px;
     }
 
     .hero-title {
@@ -59,11 +59,12 @@
       font-size: 4rem;
       color: #D2691E;
       font-style: italic;
+      margin-bottom: 15px;
     }
 
     .hero-subtitle {
       font-size: 1.2rem;
-      margin: 15px 0 30px;
+      margin-bottom: 30px;
       font-weight: 500;
     }
 
@@ -74,15 +75,17 @@
       border-radius: 8px;
       font-weight: 500;
       transition: background 0.3s;
+      display: inline-block;
     }
 
     .btn-primary:hover {
       background-color: #b95a16;
     }
 
-    .hero-image img {
+    .hero-image {
       margin-top: 40px;
-      border-radius: 12px;
+      max-width: 600px;
+      width: 100%;
     }
 
     /* --- Меню --- */
@@ -93,20 +96,21 @@
     }
 
     .menu-items {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 30px;
+      justify-items: center;
     }
 
     .menu-item {
       background-color: #fff5ee;
       padding: 20px;
       border-radius: 12px;
-      width: 220px;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       transition: transform 0.3s;
+      width: 100%;
+      max-width: 220px;
     }
 
     .menu-item:hover {
@@ -114,20 +118,18 @@
     }
 
     .menu-item p {
-      margin: 0;
       font-weight: 500;
+      margin: 10px 0 5px;
     }
 
     .menu-item span {
-      display: block;
-      margin-top: 5px;
       color: #8B5E3C;
+      font-weight: 500;
     }
 
-    /* --- CTA блок для бронирования --- */
     .booking {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 50px;
     }
 
     .booking p {
@@ -143,17 +145,16 @@
     }
 
     .review-cards {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
+      justify-items: center;
     }
 
     .review-card {
       background-color: #fff5ee;
       padding: 20px;
       border-radius: 12px;
-      width: 250px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
 
@@ -170,7 +171,6 @@
     /* --- Контакты --- */
     .contacts {
       background-color: #F7EFE8;
-      padding: 60px 20px;
       text-align: center;
     }
 
@@ -202,14 +202,24 @@
         max-width: 45%;
       }
 
-      .menu-items, .review-cards {
-        gap: 40px;
-      }
-
       .contact-info {
         flex-direction: row;
         justify-content: center;
         gap: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+
+      .hero-accent {
+        font-size: 3rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
       }
     }
 
