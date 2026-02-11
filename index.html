@@ -6,7 +6,6 @@
   <title>Между делом Café</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* --- Общие стили --- */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,9 +14,25 @@
 
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: #FAF5F0;
-      color: #4B3B2E;
+      color: #fff;
       line-height: 1.6;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('images/cafe-background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(6px) brightness(0.7);
+      z-index: -1;
     }
 
     a {
@@ -39,13 +54,11 @@
       padding: 60px 20px;
     }
 
-    /* --- Hero / главный экран --- */
     .hero {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      background-color: #F7EFE8;
       padding: 80px 20px;
     }
 
@@ -57,7 +70,7 @@
     .hero-accent {
       display: block;
       font-size: 4rem;
-      color: #D2691E;
+      color: #FFDAB9;
       font-style: italic;
       margin-bottom: 15px;
     }
@@ -66,10 +79,11 @@
       font-size: 1.2rem;
       margin-bottom: 30px;
       font-weight: 500;
+      color: #fff;
     }
 
     .btn-primary {
-      background-color: #D2691E;
+      background-color: rgba(255, 140, 0, 0.9);
       color: #fff;
       padding: 15px 30px;
       border-radius: 8px;
@@ -79,7 +93,7 @@
     }
 
     .btn-primary:hover {
-      background-color: #b95a16;
+      background-color: rgba(255, 140, 0, 1);
     }
 
     .hero-image {
@@ -88,11 +102,11 @@
       width: 100%;
     }
 
-    /* --- Меню --- */
-    .menu h2 {
-      font-size: 2.5rem;
+    .menu h2, .reviews h2, .contacts h2 {
       text-align: center;
+      font-size: 2.5rem;
       margin-bottom: 40px;
+      color: #fff;
     }
 
     .menu-items {
@@ -103,14 +117,15 @@
     }
 
     .menu-item {
-      background-color: #fff5ee;
+      background-color: rgba(255,255,255,0.2);
       padding: 20px;
       border-radius: 12px;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       transition: transform 0.3s;
       width: 100%;
       max-width: 220px;
+      color: #fff;
     }
 
     .menu-item:hover {
@@ -123,8 +138,8 @@
     }
 
     .menu-item span {
-      color: #8B5E3C;
       font-weight: 500;
+      color: #FFDAB9;
     }
 
     .booking {
@@ -135,13 +150,7 @@
     .booking p {
       font-size: 1.1rem;
       margin-bottom: 15px;
-    }
-
-    /* --- Отзывы --- */
-    .reviews h2 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 40px;
+      color: #fff;
     }
 
     .review-cards {
@@ -152,10 +161,11 @@
     }
 
     .review-card {
-      background-color: #fff5ee;
+      background-color: rgba(255,255,255,0.2);
       padding: 20px;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      color: #fff;
     }
 
     .review-card p {
@@ -165,18 +175,12 @@
 
     .review-card span {
       font-weight: 500;
-      color: #8B5E3C;
+      color: #FFDAB9;
     }
 
-    /* --- Контакты --- */
     .contacts {
-      background-color: #F7EFE8;
       text-align: center;
-    }
-
-    .contacts h2 {
-      font-size: 2.5rem;
-      margin-bottom: 40px;
+      padding-bottom: 60px;
     }
 
     .contact-info {
@@ -184,9 +188,9 @@
       flex-direction: column;
       gap: 15px;
       align-items: center;
+      color: #fff;
     }
 
-    /* --- Адаптивность --- */
     @media (min-width: 768px) {
       .hero {
         flex-direction: row;
@@ -227,7 +231,6 @@
 </head>
 <body>
 
-  <!-- Главный экран -->
   <header class="hero">
     <div class="hero-content">
       <h1 class="hero-title">
@@ -242,7 +245,6 @@
     </div>
   </header>
 
-  <!-- Меню -->
   <section id="menu" class="menu">
     <h2>Наше меню</h2>
     <div class="menu-items">
@@ -269,7 +271,6 @@
     </div>
   </section>
 
-  <!-- Отзывы -->
   <section class="reviews">
     <h2>Отзывы</h2>
     <div class="review-cards">
@@ -288,7 +289,6 @@
     </div>
   </section>
 
-  <!-- Контакты -->
   <section class="contacts">
     <h2>Контакты</h2>
     <div class="contact-info">
