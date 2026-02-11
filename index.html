@@ -267,13 +267,18 @@
 }
 @media (max-width: 480px) {
   .menu-categories {
-    flex-direction: column;
-    align-items: center;
-  }
-  .menu-card {
-    width: 90%;
-    margin-bottom: 15px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.menu-card {
+  flex: 1 1 220px;
+  margin-bottom: 0;
+}
 }
   </style>
 </head>
