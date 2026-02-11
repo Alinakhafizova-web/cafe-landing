@@ -6,7 +6,11 @@
   <title>Между делом Café</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
       font-family: 'Roboto', sans-serif;
@@ -19,8 +23,10 @@
     body::before {
       content: "";
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
       background-image: url('images/cafe-background.png');
       background-size: cover;
       background-position: center;
@@ -29,10 +35,18 @@
       z-index: -1;
     }
 
-    a { text-decoration: none; color: inherit; }
-    img { display: block; max-width: 100%; border-radius: 12px; }
-    h1, h2 { font-family: 'Playfair Display', serif; }
-    section { padding: 60px 20px; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    section {
+      padding: 60px 20px;
+    }
 
     .hero {
       display: flex;
@@ -42,7 +56,11 @@
       padding: 80px 20px;
     }
 
-    .hero-title { font-size: 3rem; line-height: 1.2; }
+    .hero-title {
+      font-size: 3rem;
+      line-height: 1.2;
+    }
+
     .hero-accent {
       display: block;
       font-size: 4rem;
@@ -68,7 +86,9 @@
       display: inline-block;
     }
 
-    .btn-primary:hover { background-color: rgba(255, 140, 0, 1); }
+    .btn-primary:hover {
+      background-color: rgba(255, 140, 0, 1);
+    }
 
     .menu h2, .reviews h2, .contacts h2 {
       text-align: center;
@@ -79,13 +99,79 @@
 
     .booking {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 50px;
     }
 
     .booking p {
       font-size: 1.1rem;
       margin-bottom: 15px;
       color: #fff;
+    }
+
+    .review-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .review-card {
+      background-color: rgba(255,255,255,0.2);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      color: #fff;
+    }
+
+    .review-card p {
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .review-card span {
+      font-weight: 500;
+      color: #FFDAB9;
+    }
+
+    .contacts {
+      text-align: center;
+      padding-bottom: 60px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      color: #fff;
+    }
+
+    @media (min-width: 768px) {
+      .hero {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+      .hero-content {
+        max-width: 100%;
+      }
+      .contact-info {
+        flex-direction: row;
+        justify-content: center;
+        gap: 50px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2.2rem;
+      }
+      .hero-accent {
+        font-size: 3rem;
+      }
+      .hero-subtitle {
+        font-size: 1rem;
+      }
     }
 
     .menu-categories {
@@ -103,6 +189,8 @@
       width: 220px;
       cursor: pointer;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: flex;
+      flex-direction: column;
     }
 
     .menu-card-header {
@@ -114,10 +202,10 @@
     }
 
     .menu-card-content {
-      max-height: 0;
+      height: 0;
       overflow: hidden;
+      transition: height 0.3s ease, padding 0.3s ease;
       padding: 0 20px;
-      transition: max-height 0.4s ease, padding 0.4s ease;
     }
 
     .menu-card-content p {
@@ -126,103 +214,118 @@
     }
 
     .menu-card.active .menu-card-content {
-      max-height: 500px;
       padding: 15px 20px;
     }
 
     @media (max-width: 480px) {
-      .hero-title { font-size: 2.2rem; }
-      .hero-accent { font-size: 3rem; }
-      .hero-subtitle { font-size: 1rem; }
-      .menu-categories { flex-direction: column; align-items: center; }
+      .menu-categories {
+        flex-direction: column;
+        align-items: center;
+      }
+      .menu-card {
+        width: 90%;
+      }
     }
   </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-content">
-    <h1 class="hero-title">
-      Между делом<br>
-      <span class="hero-accent">Café</span>
-    </h1>
-    <p class="hero-subtitle">Вкус, который делает день особенным</p>
-    <a href="#menu" class="btn-primary">Наше меню</a>
-  </div>
-</header>
+  <header class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Между делом<br>
+        <span class="hero-accent">Café</span>
+      </h1>
+      <p class="hero-subtitle">Вкус, который делает день особенным</p>
+      <a href="#menu" class="btn-primary">Наше меню</a>
+    </div>
+  </header>
 
-<section id="menu" class="menu">
-  <h2>Наше меню</h2>
-  <div class="menu-categories">
-    <div class="menu-card">
-      <div class="menu-card-header">Напитки</div>
-      <div class="menu-card-content">
-        <p>Эспрессо — 120₽</p>
-        <p>Капучино — 180₽</p>
-        <p>Латте — 190₽</p>
-        <p>Чай — 100₽</p>
+  <section id="menu" class="menu">
+    <h2>Наше меню</h2>
+    <div class="menu-categories">
+      <div class="menu-card">
+        <div class="menu-card-header">Напитки</div>
+        <div class="menu-card-content">
+          <p>Эспрессо — 120₽</p>
+          <p>Капучино — 180₽</p>
+          <p>Латте — 190₽</p>
+          <p>Чай — 100₽</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-header">Выпечка</div>
+        <div class="menu-card-content">
+          <p>Круассан — 150₽</p>
+          <p>Булочка с корицей — 130₽</p>
+          <p>Маффин — 140₽</p>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-header">Десерты</div>
+        <div class="menu-card-content">
+          <p>Тирамису — 230₽</p>
+          <p>Чизкейк — 250₽</p>
+          <p>Пирожное — 180₽</p>
+        </div>
       </div>
     </div>
-    <div class="menu-card">
-      <div class="menu-card-header">Выпечка</div>
-      <div class="menu-card-content">
-        <p>Круассан — 150₽</p>
-        <p>Булочка с корицей — 130₽</p>
-        <p>Маффин — 140₽</p>
+
+    <div class="booking">
+      <p>Забронируйте столик прямо сейчас</p>
+      <a href="#" class="btn-primary">Забронировать столик</a>
+    </div>
+  </section>
+
+  <section class="reviews">
+    <h2>Отзывы</h2>
+    <div class="review-cards">
+      <div class="review-card">
+        <p>Отличная атмосфера и вкусный кофе!</p>
+        <span>— Анна</span>
+      </div>
+      <div class="review-card">
+        <p>Любимое место для встреч с друзьями.</p>
+        <span>— Мария</span>
+      </div>
+      <div class="review-card">
+        <p>Прекрасный интерьер и уютная обстановка.</p>
+        <span>— Илья</span>
       </div>
     </div>
-    <div class="menu-card">
-      <div class="menu-card-header">Десерты</div>
-      <div class="menu-card-content">
-        <p>Тирамису — 230₽</p>
-        <p>Чизкейк — 250₽</p>
-        <p>Пирожное — 180₽</p>
-      </div>
-    </div>
-  </div>
+  </section>
 
-  <div class="booking">
-    <p>Забронируйте столик прямо сейчас</p>
-    <a href="#" class="btn-primary">Забронировать столик</a>
-  </div>
-</section>
-
-<section class="reviews">
-  <h2>Отзывы</h2>
-  <div class="review-cards">
-    <div class="review-card">
-      <p>Отличная атмосфера и вкусный кофе!</p>
-      <span>— Анна</span>
+  <section class="contacts">
+    <h2>Контакты</h2>
+    <div class="contact-info">
+      <div>📍 Ул. Примерная, д. 1</div>
+      <div>📞 +7 123 456 78 90</div>
+      <div>⏰ Пн-Вс 8:00 - 22:00</div>
     </div>
-    <div class="review-card">
-      <p>Любимое место для встреч с друзьями.</p>
-      <span>— Мария</span>
-    </div>
-    <div class="review-card">
-      <p>Прекрасный интерьер и уютная обстановка.</p>
-      <span>— Илья</span>
-    </div>
-  </div>
-</section>
-
-<section class="contacts">
-  <h2>Контакты</h2>
-  <div class="contact-info">
-    <div>📍 Ул. Примерная, д. 1</div>
-    <div>📞 +7 123 456 78 90</div>
-    <div>⏰ Пн-Вс 8:00 - 22:00</div>
-  </div>
-</section>
+  </section>
 
 <script>
 const cards = document.querySelectorAll('.menu-card');
 
 cards.forEach(card => {
+  const content = card.querySelector('.menu-card-content');
   card.addEventListener('click', () => {
-    cards.forEach(c => { if(c !== card) c.classList.remove('active'); });
-    card.classList.toggle('active');
+    cards.forEach(c => {
+      if (c !== card) {
+        c.classList.remove('active');
+        c.querySelector('.menu-card-content').style.height = 0;
+      }
+    });
+    if (card.classList.contains('active')) {
+      card.classList.remove('active');
+      content.style.height = 0;
+    } else {
+      card.classList.add('active');
+      content.style.height = content.scrollHeight + "px";
+    }
   });
 });
 </script>
+
 </body>
 </html>
