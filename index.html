@@ -358,10 +358,11 @@ const cards = document.querySelectorAll('.menu-card');
 
 cards.forEach(card => {
   card.addEventListener('click', () => {
-    const isActive = card.classList.contains('active');
-    cards.forEach(c => c.classList.remove('active'));
-    if (!isActive) {
+    if (!card.classList.contains('active')) {
+      cards.forEach(c => c.classList.remove('active'));
       card.classList.add('active');
+    } else {
+      card.classList.remove('active');
     }
   });
 });
