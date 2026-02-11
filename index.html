@@ -40,12 +40,6 @@
       color: inherit;
     }
 
-    img {
-      display: block;
-      max-width: 100%;
-      border-radius: 12px;
-    }
-
     h1, h2 {
       font-family: 'Playfair Display', serif;
     }
@@ -105,7 +99,7 @@
 
     .booking {
       text-align: center;
-      margin-top: 50px;
+      margin-top: 60px;
     }
 
     .booking p {
@@ -211,30 +205,15 @@
     }
 
     .menu-card-content {
-      max-height: 0;
+      height: 0;
       overflow: hidden;
       padding: 0 20px;
-      transition: max-height 0.4s ease, padding 0.4s ease;
+      transition: height 0.4s ease;
     }
 
     .menu-card-content p {
       margin: 10px 0;
       text-align: center;
-    }
-
-    .menu-card.active .menu-card-content {
-      max-height: 500px;
-      padding: 15px 20px;
-    }
-
-    @media (max-width: 480px) {
-      .menu-categories {
-        flex-direction: column;
-        align-items: center;
-      }
-      .menu-card {
-        width: 90%;
-      }
     }
   </style>
 </head>
@@ -318,11 +297,22 @@
 const cards = document.querySelectorAll('.menu-card');
 
 cards.forEach(card => {
+  const content = card.querySelector('.menu-card-content');
   card.addEventListener('click', () => {
     cards.forEach(c => {
-      if (c !== card) c.classList.remove('active');
+      const cContent = c.querySelector('.menu-card-content');
+      if(c !== card){
+        c.classList.remove('active');
+        cContent.style.height = '0';
+      }
     });
-    card.classList.toggle('active');
+    if(card.classList.contains('active')){
+      card.classList.remove('active');
+      content.style.height = '0';
+    } else {
+      card.classList.add('active');
+      content.style.height = content.scrollHeight + 'px';
+    }
   });
 });
 </script>
