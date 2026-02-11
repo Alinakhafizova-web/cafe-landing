@@ -226,7 +226,57 @@
         font-size: 1rem;
       }
     }
+.menu-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
 
+.menu-card {
+  background-color: rgba(255,255,255,0.2);
+  color: #fff;
+  border-radius: 12px;
+  width: 220px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+
+.menu-card-header {
+  padding: 20px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+.menu-card-content {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.menu-card-content p {
+  margin: 10px 0;
+  text-align: center;
+}
+
+.menu-card.active .menu-card-content {
+  max-height: 500px;
+  padding: 15px 20px;
+}
+
+@media (max-width: 480px) {
+  .menu-categories {
+    flex-direction: column;
+    align-items: center;
+  }
+  .menu-card {
+    width: 90%;
+  }
+}
   </style>
 </head>
 <body>
@@ -244,19 +294,33 @@
 
   <section id="menu" class="menu">
     <h2>Наше меню</h2>
-    <div class="menu-items">
-      <div class="menu-item">
-        <p>Капучино</p>
-        <span>180₽</span>
-      </div>
-      <div class="menu-item">
-        <p>Итальянский салат</p>
-        <span>290₽</span>
-      </div>
-      <div class="menu-item">
-        <p>Тирамису</p>
-        <span>230₽</span>
-      </div>
+    <div class="menu-categories">
+  <div class="menu-card">
+    <div class="menu-card-header">Напитки</div>
+    <div class="menu-card-content">
+      <p>Эспрессо — 120₽</p>
+      <p>Капучино — 180₽</p>
+      <p>Латте — 190₽</p>
+      <p>Чай — 100₽</p>
+    </div>
+  </div>
+  <div class="menu-card">
+    <div class="menu-card-header">Выпечка</div>
+    <div class="menu-card-content">
+      <p>Круассан — 150₽</p>
+      <p>Булочка с корицей — 130₽</p>
+      <p>Маффин — 140₽</p>
+    </div>
+  </div>
+  <div class="menu-card">
+    <div class="menu-card-header">Десерты</div>
+    <div class="menu-card-content">
+      <p>Тирамису — 230₽</p>
+      <p>Чизкейк — 250₽</p>
+      <p>Пирожное — 180₽</p>
+    </div>
+  </div>
+</div>
     </div>
 
     <div class="booking">
@@ -291,6 +355,14 @@
       <div>⏰ Пн-Вс 8:00 - 22:00</div>
     </div>
   </section>
+<script>
+const cards = document.querySelectorAll('.menu-card');
 
+cards.forEach(card => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('active');
+  });
+});
+</script>
 </body>
 </html>
