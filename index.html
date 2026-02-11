@@ -360,6 +360,11 @@ const cards = document.querySelectorAll('.menu-card');
 
 cards.forEach(card => {
   card.addEventListener('click', () => {
+    cards.forEach(c => {
+      if (c !== card) {
+        c.classList.remove('active');
+      }
+    });
     card.classList.toggle('active');
   });
 });
