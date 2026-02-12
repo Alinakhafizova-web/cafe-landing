@@ -29,7 +29,15 @@ section { padding:60px 20px; }
 .btn-primary:hover { background-color: rgba(255,140,0,1); }
 .menu h2 { text-align:center; font-size:2.5rem; margin-bottom:40px; color:#fff; }
 .booking p { font-size:1.1rem; margin-bottom:15px; color:#fff; }
-.menu-categories { display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin-bottom:40px; }
+.menu-categories {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+  min-height: 350px;
+  align-items: flex-start;
+}
 .menu-card { background-color: rgba(255,255,255,0.2); color:#fff; border-radius:12px; width:220px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2); display:flex; flex-direction:column; transition: transform 0.3s; }
 .menu-card:hover { transform:translateY(-5px); }
 .menu-card-header { padding:20px; font-weight:600; text-align:center; font-size:1.2rem; user-select:none; }
@@ -37,11 +45,11 @@ section { padding:60px 20px; }
 .menu-card-content p { margin:10px 0; text-align:center; }
 @media (max-width:480px) { .menu-categories { flex-direction:column; align-items:center; } .menu-card { width:90%; } }
   .menu {
-  padding-bottom: 200px;
+  padding-bottom: 60px;
 }
 
 .booking {
-  margin-top: 200px;
+  margin-top: 20px;
   text-align: center;
 }
 </style>
