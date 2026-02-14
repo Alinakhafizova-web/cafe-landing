@@ -93,6 +93,7 @@
             width: 100%;
             padding: 10px 0;
             justify-content: flex-start;
+            scroll-snap-type: x mandatory;
         }
         .cards-viewport::-webkit-scrollbar { display: none; }
 
@@ -107,6 +108,7 @@
             text-align: center;
             transition: 0.4s;
             animation: fadeIn 0.5s ease forwards;
+            scroll-snap-align: start; 
         }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
