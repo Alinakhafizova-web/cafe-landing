@@ -1,146 +1,215 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Между делом Café</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-<style>
-* { box-sizing: border-box; margin:0; padding:0; }
-body { font-family:'Roboto', sans-serif; color:#fff; line-height:1.6; min-height:100vh; position:relative; }
-body::before {
-  content:"";
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background-image:url('images/cafe-background.png');
-  background-size:cover; background-position:center; background-repeat:no-repeat;
-  filter: blur(6px) brightness(0.7);
-  z-index:-1;
-}
-a { text-decoration:none; color:inherit; }
-h1,h2 { font-family:'Playfair Display', serif; }
-section { padding:60px 20px; }
-.hero { display:flex; flex-direction:column; align-items:center; text-align:center; padding:80px 20px; }
-.hero-title { font-size:3rem; line-height:1.2; }
-.hero-accent { display:block; font-size:4rem; color:#FFDAB9; font-style:italic; margin-bottom:15px; }
-.hero-subtitle { font-size:1.2rem; margin-bottom:30px; font-weight:500; color:#fff; }
-.btn-primary { background-color: rgba(255,140,0,0.9); color:#fff; padding:15px 30px; border-radius:8px; font-weight:500; transition:0.3s; display:inline-block; }
-.btn-primary:hover { background-color: rgba(255,140,0,1); }
-.menu h2 { text-align:center; font-size:2.5rem; margin-bottom:40px; color:#fff; }
-.booking p { font-size:1.1rem; margin-bottom:15px; color:#fff; }
-.menu-categories {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-  min-height: 350px;
-  align-items: flex-start;
-}
-.menu-card { background-color: rgba(255,255,255,0.2); color:#fff; border-radius:12px; width:220px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2); display:flex; flex-direction:column; transition: transform 0.3s; }
-.menu-card:hover { transform:translateY(-5px); }
-.menu-card-header { padding:20px; font-weight:600; text-align:center; font-size:1.2rem; user-select:none; }
-.menu-card-content { height:0; overflow:hidden; transition:height 0.3s ease, padding 0.3s ease; padding:0 20px; }
-.menu-card-content p { margin:10px 0; text-align:center; }
-@media (max-width:480px) { .menu-categories { flex-direction:column; align-items:center; } .menu-card { width:90%; } }
-  .menu {
-  padding-bottom: 60px;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Между делом | Coffee & Atmosphere</title>
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #F9F5F2;
+            --accent-color: #C49B7C;
+            --text-dark: #2C1B14;
+            --text-light: #5E5048;
+            --white: #ffffff;
+        }
 
-.booking {
-  margin-top: 20px;
-  text-align: center;
-}
-</style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-dark);
+            line-height: 1.7;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(44, 27, 20, 0.4), rgba(44, 27, 20, 0.4)), 
+                        url('images/cafe-background.png') center/cover no-repeat;
+        }
+
+        .hero-content { color: var(--white); z-index: 2; max-width: 800px; padding: 0 20px; }
+        
+        .hero-content h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(3rem, 10vw, 5.5rem); 
+            font-weight: 400;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p { 
+            font-size: 1.1rem; 
+            letter-spacing: 3px; 
+            text-transform: uppercase; 
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 18px 45px;
+            border: 1px solid var(--white);
+            color: var(--white);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            transition: 0.4s;
+        }
+
+        .btn:hover { background: var(--white); color: var(--text-dark); }
+
+        /* Sections General */
+        section { padding: 120px 20px; max-width: 1100px; margin: 0 auto; }
+        h2 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: 3rem; 
+            margin-bottom: 60px; 
+            text-align: center;
+            font-weight: 400;
+        }
+
+        /* Menu Section - Elegant List Style */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 60px;
+        }
+
+        .menu-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--accent-color);
+            border-bottom: 1px solid #E0D7D0;
+            padding-bottom: 10px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+        }
+
+        .menu-item-name { font-weight: 400; padding-right: 10px; background: var(--bg-color); position: relative; z-index: 1; }
+        .menu-item-price { font-weight: 600; padding-left: 10px; background: var(--bg-color); position: relative; z-index: 1; }
+        
+        .menu-item::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px dotted #B8B0AA;
+            height: 1px;
+            margin: 0 5px;
+        }
+
+        /* Booking Section */
+        .booking {
+            background-color: #F1ECE8;
+            text-align: center;
+            border-radius: 2px;
+            padding: 80px 20px;
+        }
+
+        .booking h2 { margin-bottom: 20px; }
+        .booking p { color: var(--text-light); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        /* Footer / Contacts */
+        .contacts {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            border-top: 1px solid #E0D7D0;
+            margin-top: 60px;
+            padding-top: 60px;
+        }
+
+        .contact-block h4 { text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 15px; color: var(--accent-color); }
+
+        @media (max-width: 768px) {
+            h2 { font-size: 2.2rem; }
+            .hero-content h1 { font-size: 3.5rem; }
+            .contacts { flex-direction: column; text-align: center; }
+        }
+    </style>
 </head>
 <body>
 
-<header class="hero">
-  <div class="hero-content">
-    <h1 class="hero-title">Между делом<br><span class="hero-accent">Café</span></h1>
-    <p class="hero-subtitle">Вкус, который делает день особенным</p>
-    <a href="#menu" class="btn-primary">Наше меню</a>
-  </div>
-</header>
+    <header class="hero">
+        <div class="hero-content">
+            <p>Добро пожаловать</p>
+            <h1>Между делом</h1>
+            <a href="#menu" class="btn">Посмотреть меню</a>
+        </div>
+    </header>
 
-<section id="menu" class="menu">
-  <h2>Наше меню</h2>
-  <div class="menu-categories">
-    <div class="menu-card">
-      <div class="menu-card-header">Напитки</div>
-      <div class="menu-card-content">
-        <p>Эспрессо — 120₽</p>
-        <p>Капучино — 180₽</p>
-        <p>Латте — 190₽</p>
-        <p>Чай — 100₽</p>
-      </div>
-    </div>
-    <div class="menu-card">
-      <div class="menu-card-header">Выпечка</div>
-      <div class="menu-card-content">
-        <p>Круассан — 150₽</p>
-        <p>Булочка с корицей — 130₽</p>
-        <p>Маффин — 140₽</p>
-      </div>
-    </div>
-    <div class="menu-card">
-      <div class="menu-card-header">Десерты</div>
-      <div class="menu-card-content">
-        <p>Тирамису — 230₽</p>
-        <p>Чизкейк — 250₽</p>
-        <p>Пирожное — 180₽</p>
-      </div>
-    </div>
-  </div>
+    <section id="menu">
+        <h2>Карта напитков и блюд</h2>
+        <div class="menu-grid">
+            <div class="menu-category">
+                <h3>Кофе</h3>
+                <div class="menu-item">
+                    <span class="menu-item-name">Эспрессо</span>
+                    <span class="menu-item-price">120 ₽</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Капучино</span>
+                    <span class="menu-item-price">180 ₽</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Флэт Уайт</span>
+                    <span class="menu-item-price">210 ₽</span>
+                </div>
+            </div>
 
-  <div class="booking">
-    <p>Забронируйте столик прямо сейчас</p>
-    <a href="https://t.me/Alina_Khafizova_R" class="btn-primary" target="_blank">Забронировать столик</a>
-  </div>
-</section>
+            <div class="menu-category">
+                <h3>Десерты</h3>
+                <div class="menu-item">
+                    <span class="menu-item-name">Тирамису</span>
+                    <span class="menu-item-price">230 ₽</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Чизкейк Сан-Себастьян</span>
+                    <span class="menu-item-price">320 ₽</span>
+                </div>
+                <div class="menu-item">
+                    <span class="menu-item-name">Круассан классический</span>
+                    <span class="menu-item-price">150 ₽</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="reviews">
-  <h2>Отзывы</h2>
-  <div class="review-cards">
-    <div class="review-card"><p>Отличная атмосфера и вкусный кофе!</p><span>— Анна</span></div>
-    <div class="review-card"><p>Любимое место для встреч с друзьями.</p><span>— Мария</span></div>
-    <div class="review-card"><p>Прекрасный интерьер и уютная обстановка.</p><span>— Илья</span></div>
-  </div>
-</section>
+    <section class="booking">
+        <h2>Забронировать стол</h2>
+        <p>Проведите время в уютной атмосфере нашей кофейни. Мы подготовим для вас лучший столик у окна.</p>
+        <a href="https://t.me" class="btn" style="border-color: var(--text-dark); color: var(--text-dark);">Связаться в Telegram</a>
+    </section>
 
-<section class="contacts">
-  <h2>Контакты</h2>
-  <div class="contact-info">
-    <div>📍 Ул. Примерная, д. 1</div>
-    <div>📞 +7 123 456 78 90</div>
-    <div>⏰ Пн-Вс 8:00 - 22:00</div>
-  </div>
-</section>
-
-<script>
-const cards = document.querySelectorAll('.menu-card');
-
-cards.forEach(card => {
-  const content = card.querySelector('.menu-card-content');
-  card.addEventListener('click', () => {
-    cards.forEach(c => {
-      const cContent = c.querySelector('.menu-card-content');
-      if(c !== card) {
-        c.classList.remove('active');
-        cContent.style.height = 0;
-      }
-    });
-    if(card.classList.contains('active')) {
-      card.classList.remove('active');
-      content.style.height = 0;
-    } else {
-      card.classList.add('active');
-      content.style.height = content.scrollHeight + "px";
-    }
-  });
-});
-</script>
+    <section class="contacts">
+        <div class="contact-block">
+            <h4>Адрес</h4>
+            <p>г. Москва, ул. Примерная, 12</p>
+        </div>
+        <div class="contact-block">
+            <h4>Режим работы</h4>
+            <p>Ежедневно: 08:00 — 22:00</p>
+        </div>
+        <div class="contact-block">
+            <h4>Соцсети</h4>
+            <p>Instagram / Telegram / VK</p>
+        </div>
+    </section>
 
 </body>
 </html>
