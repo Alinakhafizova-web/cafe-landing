@@ -7,7 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin:0; padding:0; }
+html { scroll-behavior: smooth; }
 body { font-family:'Roboto', sans-serif; color:#fff; line-height:1.6; min-height:100vh; position:relative; }
+
+/* Фон */
 body::before {
   content:"";
   position:fixed;
@@ -15,42 +18,48 @@ body::before {
   width:100%; height:100%;
   background-image:url('images/cafe-background.png');
   background-size:cover; background-position:center; background-repeat:no-repeat;
-  filter: blur(6px) brightness(0.7);
+  filter: blur(6px) brightness(0.6);
   z-index:-1;
 }
-a { text-decoration:none; color:inherit; }
-h1,h2 { font-family:'Playfair Display', serif; }
-section { padding:60px 20px; }
-.hero { display:flex; flex-direction:column; align-items:center; text-align:center; padding:80px 20px; }
-.hero-title { font-size:3rem; line-height:1.2; }
-.hero-accent { display:block; font-size:4rem; color:#FFDAB9; font-style:italic; margin-bottom:15px; }
-.hero-subtitle { font-size:1.2rem; margin-bottom:30px; font-weight:500; color:#fff; }
-.btn-primary { background-color: rgba(255,140,0,0.9); color:#fff; padding:15px 30px; border-radius:8px; font-weight:500; transition:0.3s; display:inline-block; }
-.btn-primary:hover { background-color: rgba(255,140,0,1); }
-.menu h2 { text-align:center; font-size:2.5rem; margin-bottom:40px; color:#fff; }
-.booking p { font-size:1.1rem; margin-bottom:15px; color:#fff; }
-.menu-categories {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-  min-height: 350px;
-  align-items: flex-start;
-}
-.menu-card { background-color: rgba(255,255,255,0.2); color:#fff; border-radius:12px; width:220px; cursor:pointer; box-shadow:0 4px 10px rgba(0,0,0,0.2); display:flex; flex-direction:column; transition: transform 0.3s; }
-.menu-card:hover { transform:translateY(-5px); }
-.menu-card-header { padding:20px; font-weight:600; text-align:center; font-size:1.2rem; user-select:none; }
-.menu-card-content { height:0; overflow:hidden; transition:height 0.3s ease, padding 0.3s ease; padding:0 20px; }
-.menu-card-content p { margin:10px 0; text-align:center; }
-@media (max-width:480px) { .menu-categories { flex-direction:column; align-items:center; } .menu-card { width:90%; } }
-  .menu {
-  padding-bottom: 60px;
-}
 
-.booking {
-  margin-top: 20px;
-  text-align: center;
+a { text-decoration:none; color:inherit; }
+h1, h2 { font-family:'Playfair Display', serif; }
+section { padding:60px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+
+/* Hero Section */
+.hero { display:flex; flex-direction:column; align-items:center; text-align:center; padding:120px 20px; }
+.hero-title { font-size:clamp(2.5rem, 8vw, 4rem); line-height:1.1; }
+.hero-accent { display:block; font-size:clamp(3rem, 10vw, 5rem); color:#FFDAB9; font-style:italic; margin-bottom:15px; }
+.hero-subtitle { font-size:1.2rem; margin-bottom:30px; font-weight:400; text-shadow: 1px 1px 5px rgba(0,0,0,0.5); }
+
+/* Кнопки */
+.btn-primary { background-color: rgba(255,140,0,0.9); color:#fff; padding:15px 40px; border-radius:30px; font-weight:500; transition:0.3s; display:inline-block; border: none; cursor: pointer; }
+.btn-primary:hover { background-color: rgba(255,140,0,1); transform: scale(1.05); }
+
+/* Сетка меню */
+.menu h2, .reviews h2, .contacts h2 { font-size:2.5rem; margin-bottom:40px; }
+.menu-categories { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 40px; }
+
+/* Карточки меню */
+.menu-card { background-color: rgba(255,255,255,0.15); backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.1); border-radius:15px; width:280px; cursor:pointer; overflow:hidden; transition: 0.3s; }
+.menu-card:hover { background-color: rgba(255,255,255,0.25); }
+.menu-card-header { padding:25px; font-weight:600; font-size:1.4rem; text-transform: uppercase; letter-spacing: 1px; }
+.menu-card-content { height:0; overflow:hidden; transition: height 0.4s ease; padding: 0 20px; }
+.menu-card.active .menu-card-content { height: auto; padding-bottom: 25px; }
+.menu-card-content p { margin:12px 0; border-bottom: 1px dashed rgba(255,255,255,0.3); display: flex; justify-content: space-between; }
+
+/* Отзывы */
+.review-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.review-card { background: rgba(0,0,0,0.3); padding: 30px; border-radius: 15px; font-style: italic; }
+.review-card span { display: block; margin-top: 15px; font-weight: bold; font-style: normal; color: #FFDAB9; }
+
+/* Контакты */
+.contact-info { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; font-size: 1.2rem; background: rgba(255,255,255,0.1); padding: 40px; border-radius: 15px; }
+.contact-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+@media (max-width:480px) { 
+    .menu-card { width:100%; }
+    .hero { padding: 80px 10px; }
 }
 </style>
 </head>
@@ -60,7 +69,7 @@ section { padding:60px 20px; }
   <div class="hero-content">
     <h1 class="hero-title">Между делом<br><span class="hero-accent">Café</span></h1>
     <p class="hero-subtitle">Вкус, который делает день особенным</p>
-    <a href="#menu" class="btn-primary">Наше меню</a>
+    <a href="#menu" class="btn-primary">Смотреть меню</a>
   </div>
 </header>
 
@@ -68,53 +77,53 @@ section { padding:60px 20px; }
   <h2>Наше меню</h2>
   <div class="menu-categories">
     <div class="menu-card">
-      <div class="menu-card-header">Напитки</div>
+      <div class="menu-card-header">☕ Напитки</div>
       <div class="menu-card-content">
-        <p>Эспрессо — 120₽</p>
-        <p>Капучино — 180₽</p>
-        <p>Латте — 190₽</p>
-        <p>Чай — 100₽</p>
+        <p><span>Эспрессо</span> <span>120₽</span></p>
+        <p><span>Капучино</span> <span>180₽</span></p>
+        <p><span>Латте</span> <span>190₽</span></p>
+        <p><span>Чай</span> <span>100₽</span></p>
       </div>
     </div>
     <div class="menu-card">
-      <div class="menu-card-header">Выпечка</div>
+      <div class="menu-card-header">🥐 Выпечка</div>
       <div class="menu-card-content">
-        <p>Круассан — 150₽</p>
-        <p>Булочка с корицей — 130₽</p>
-        <p>Маффин — 140₽</p>
+        <p><span>Круассан</span> <span>150₽</span></p>
+        <p><span>Булочка</span> <span>130₽</span></p>
+        <p><span>Маффин</span> <span>140₽</span></p>
       </div>
     </div>
     <div class="menu-card">
-      <div class="menu-card-header">Десерты</div>
+      <div class="menu-card-header">🍰 Десерты</div>
       <div class="menu-card-content">
-        <p>Тирамису — 230₽</p>
-        <p>Чизкейк — 250₽</p>
-        <p>Пирожное — 180₽</p>
+        <p><span>Тирамису</span> <span>230₽</span></p>
+        <p><span>Чизкейк</span> <span>250₽</span></p>
+        <p><span>Пирожное</span> <span>180₽</span></p>
       </div>
     </div>
   </div>
 
   <div class="booking">
-    <p>Забронируйте столик прямо сейчас</p>
-    <a href="https://t.me/Alina_Khafizova_R" class="btn-primary" target="_blank">Забронировать столик</a>
+    <p style="margin-bottom: 20px;">Забронируйте столик прямо сейчас</p>
+    <a href="https://t.me/Alina_Khafizova_R" class="btn-primary" target="_blank">Забронировать в Telegram</a>
   </div>
 </section>
 
 <section class="reviews">
-  <h2>Отзывы</h2>
+  <h2>Отзывы гостей</h2>
   <div class="review-cards">
-    <div class="review-card"><p>Отличная атмосфера и вкусный кофе!</p><span>— Анна</span></div>
-    <div class="review-card"><p>Любимое место для встреч с друзьями.</p><span>— Мария</span></div>
-    <div class="review-card"><p>Прекрасный интерьер и уютная обстановка.</p><span>— Илья</span></div>
+    <div class="review-card"><p>«Лучший капучино в районе! Атмосфера очень спокойная.»</p><span>— Анна</span></div>
+    <div class="review-card"><p>«Круассаны как в Париже. Обожаю здесь завтракать.»</p><span>— Мария</span></div>
+    <div class="review-card"><p>«Очень уютно, идеальное место для работы с ноутбуком.»</p><span>— Илья</span></div>
   </div>
 </section>
 
 <section class="contacts">
   <h2>Контакты</h2>
   <div class="contact-info">
-    <div>📍 Ул. Примерная, д. 1</div>
-    <div>📞 +7 123 456 78 90</div>
-    <div>⏰ Пн-Вс 8:00 - 22:00</div>
+    <div class="contact-item"><span>📍 Адрес</span><strong>Ул. Примерная, д. 1</strong></div>
+    <div class="contact-item"><span>📞 Телефон</span><strong>+7 123 456 78 90</strong></div>
+    <div class="contact-item"><span>⏰ Время работы</span><strong>Пн-Вс 8:00 - 22:00</strong></div>
   </div>
 </section>
 
@@ -122,22 +131,13 @@ section { padding:60px 20px; }
 const cards = document.querySelectorAll('.menu-card');
 
 cards.forEach(card => {
-  const content = card.querySelector('.menu-card-content');
   card.addEventListener('click', () => {
+    // Закрываем другие карточки
     cards.forEach(c => {
-      const cContent = c.querySelector('.menu-card-content');
-      if(c !== card) {
-        c.classList.remove('active');
-        cContent.style.height = 0;
-      }
+      if (c !== card) c.classList.remove('active');
     });
-    if(card.classList.contains('active')) {
-      card.classList.remove('active');
-      content.style.height = 0;
-    } else {
-      card.classList.add('active');
-      content.style.height = content.scrollHeight + "px";
-    }
+    // Переключаем текущую
+    card.classList.toggle('active');
   });
 });
 </script>
