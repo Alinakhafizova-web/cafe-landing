@@ -179,34 +179,47 @@
         const menuData = {
             classic: [
                 { name: "Эспрессо", vol: "60мл", price: "150₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Доппио", vol: "100мл", price: "210₽", img: "https://cdn-icons-png.flaticon.com" },
                 { name: "Американо", vol: "120мл", price: "250₽", img: "https://cdn-icons-png.flaticon.com" },
                 { name: "Капучино", vol: "250мл", price: "350₽", img: "https://cdn-icons-png.flaticon.com" },
                 { name: "Латте", vol: "300мл", price: "390₽", img: "https://cdn-icons-png.flaticon.com" },
-                { name: "Флэт Уайт", vol: "200мл", price: "320₽", img: "https://cdn-icons-png.flaticon.com" }
+                { name: "Флэт Уайт", vol: "200мл", price: "320₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Латте Макиато", vol: "350мл", price: "410₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Кофе по-венски", vol: "250мл", price: "380₽", img: "https://cdn-icons-png.flaticon.com" }
             ],
             author: [
                 { name: "Раф Халва", vol: "300мл", price: "420₽", img: "https://cdn-icons-png.flaticon.com" },
                 { name: "Латте Черника", vol: "300мл", price: "450₽", img: "https://cdn-icons-png.flaticon.com" },
-                { name: "Бамбл", vol: "400мл", price: "410₽", img: "https://cdn-icons-png.flaticon.com" }
+                { name: "Бамбл Кофе", vol: "400мл", price: "410₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Раф Цитрус", vol: "300мл", price: "440₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Кофе Лаванда", vol: "300мл", price: "430₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Айс Латте Мята", vol: "400мл", price: "390₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Пряный Мокко", vol: "350мл", price: "460₽", img: "https://cdn-icons-png.flaticon.com" }
             ],
             desserts: [
                 { name: "Тирамису", vol: "150г", price: "320₽", img: "https://cdn-icons-png.flaticon.com" },
-                { name: "Чизкейк", vol: "180г", price: "350₽", img: "https://cdn-icons-png.flaticon.com" },
-                { name: "Медовик", vol: "150г", price: "310₽", img: "https://cdn-icons-png.flaticon.com" }
+                { name: "Чизкейк Сан-Себ", vol: "180г", price: "350₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Медовик", vol: "150г", price: "310₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Макарон (3шт)", vol: "45г", price: "290₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Брауни", vol: "120г", price: "280₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Павлова", vol: "130г", price: "360₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Эклер Ваниль", vol: "90г", price: "190₽", img: "https://cdn-icons-png.flaticon.com" }
             ],
             pastry: [
-                { name: "Круассан", vol: "80г", price: "180₽", img: "https://cdn-icons-png.flaticon.com" },
-                { name: "Улитка", vol: "100г", price: "150₽", img: "https://cdn-icons-png.flaticon.com" },
-                { name: "Даниш", vol: "110г", price: "210₽", img: "https://cdn-icons-png.flaticon.com" }
+                { name: "Круассан классик", vol: "80г", price: "180₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Улитка с изюмом", vol: "100г", price: "150₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Даниш с ягодой", vol: "110г", price: "210₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Киш Лорен", vol: "160г", price: "340₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Бриошь", vol: "120г", price: "190₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Слойка с сыром", vol: "100г", price: "170₽", img: "https://cdn-icons-png.flaticon.com" },
+                { name: "Круассан Миндаль", vol: "110г", price: "260₽", img: "https://cdn-icons-png.flaticon.com" }
             ]
         };
 
         function changeCategory(cat, event) {
-            // Обновляем активную вкладку
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            event.target.classList.add('active');
+            if (event) event.target.classList.add('active');
 
-            // Очищаем и заполняем слайдер
             const slider = document.getElementById('slider');
             slider.innerHTML = '';
 
@@ -221,17 +234,15 @@
                 `;
                 slider.innerHTML += card;
             });
-            slider.scrollLeft = 0; // Возвращаем в начало при смене категории
+            slider.scrollLeft = 0;
         }
 
         function scrollM(val) {
             document.getElementById('slider').scrollBy({ left: val, behavior: 'smooth' });
         }
 
-        // Запуск первой категории при загрузке
         window.onload = () => {
-            const firstTab = document.querySelector('.tab');
-            changeCategory('classic', { target: firstTab });
+            changeCategory('classic');
         };
     </script>
 </body>
