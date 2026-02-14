@@ -3,157 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Меню Кофейни</title>
+    <title>Между делом | Кофейня с атмосферой</title>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --bg-coffee: #5E463E; /* Твой коричневый фон */
-            --card-light: #E3D9D0;  /* Бежевый цвет карточек */
-            --text-dark: #2C1B14;
+            --bg-soft: #FDFBFA;
+            --accent: #AD5D4E;
+            --coffee-dark: #5E463E;
+            --card-beige: #E3D9D0;
             --white: #ffffff;
+            --dark: #2C1B14;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-coffee); color: var(--white); }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg-soft); color: var(--dark); line-height: 1.6; }
 
-        /* Основная секция */
-        .menu-section {
-            padding: 80px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        /* --- HERO СЕКЦИЯ (УЛУЧШЕННАЯ) --- */
+        .hero {
+            height: 100vh;
+            display: flex; align-items: center; justify-content: center; text-align: center;
+            /* Затемнение фона для читаемости текста */
+            background: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), 
+                        url('images/cafe-background.png') center/cover no-repeat;
+            color: var(--white);
+            padding: 0 20px;
         }
 
-        h2 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 30px; font-weight: 400; }
+        .hero-content { max-width: 900px; }
 
-        /* Вкладки */
-        .tabs { display: flex; gap: 20px; margin-bottom: 50px; font-size: 0.9rem; opacity: 0.8; }
-        .tab { cursor: pointer; transition: 0.3s; }
-        .tab.active { text-decoration: underline; opacity: 1; font-weight: 600; }
+        .hero-content h1 { 
+            font-family: 'Playfair Display', serif; 
+            font-size: clamp(3.5rem, 12vw, 7rem); 
+            font-style: italic; 
+            font-weight: 400;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
 
-        /* Слайдерный блок */
-        .slider-container {
-            position: relative;
-            width: 100%;
-            max-width: 1200px; /* Фиксируем ширину всей группы */
+        .hero-content p { 
+            font-size: 1.1rem; 
+            letter-spacing: 4px; 
+            text-transform: uppercase; 
+            margin-bottom: 40px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .btn-hero {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: var(--accent);
+            color: var(--white);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        .btn-hero:hover { transform: translateY(-3px); background-color: #964d40; box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
+
+        /* --- СЕКЦИЯ МЕНЮ (ИСПРАВЛЕННАЯ) --- */
+        .menu-section { background-color: var(--coffee-dark); padding: 120px 0; color: var(--white); overflow: hidden; }
+
+        .menu-container {
+            max-width: 1240px; 
+            margin: 0 auto; 
             padding: 0 70px; /* Место для стрелок */
+            position: relative;
         }
+
+        .menu-header { display: flex; align-items: baseline; justify-content: center; gap: 40px; margin-bottom: 60px; }
+        .menu-header h2 { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 400; }
+        
+        .menu-tabs { display: flex; gap: 20px; font-size: 0.95rem; opacity: 0.7; }
+        .tab { cursor: pointer; transition: 0.3s; }
+        .tab.active { text-decoration: underline; opacity: 1; font-weight: 600; color: var(--card-beige); }
+
+        /* Виджет слайдера */
+        .slider-wrapper { position: relative; display: flex; align-items: center; }
 
         .cards-viewport {
-            display: flex;
-            gap: 20px; /* Расстояние между карточками */
+            display: flex; 
+            gap: 30px; 
             overflow-x: auto;
-            scroll-behavior: smooth;
+            scroll-behavior: smooth; 
             scrollbar-width: none;
             width: 100%;
+            padding: 10px 0;
         }
         .cards-viewport::-webkit-scrollbar { display: none; }
 
-        /* Карточка: Ключевое исправление здесь */
+        /* Карточка: теперь 4 штуки ровно в ряд */
         .coffee-card {
-            background-color: var(--card-light);
-            color: var(--text-dark);
-            border-radius: 45px;
-            padding: 40px 20px;
-            /* Рассчитываем ширину: (100% / 4) минус отступы */
-            flex: 0 0 calc(25% - 15px); 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            background-color: var(--card-beige); 
+            color: var(--dark);
+            border-radius: 50px; 
+            padding: 50px 30px;
+            /* Расчет ширины: (100% - (3 зазора по 30px)) / 4 */
+            flex: 0 0 calc(25% - 22.5px); 
+            display: flex; flex-direction: column; align-items: center;
             text-align: center;
-            transition: 0.3s;
+            transition: 0.4s;
         }
-
-        .coffee-card img { width: 130px; height: 130px; margin-bottom: 25px; object-fit: contain; }
-        .coffee-card h3 { font-size: 1.6rem; margin-bottom: 20px; font-weight: 500; }
+        .coffee-card:hover { transform: translateY(-10px); }
+        .coffee-card img { width: 140px; height: 140px; object-fit: contain; margin-bottom: 30px; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); }
+        .coffee-card h3 { font-size: 1.6rem; font-weight: 500; margin-bottom: 20px; min-height: 60px; display: flex; align-items: center; }
         
-        .info-row { 
-            display: flex; 
-            justify-content: space-between; 
-            width: 100%; 
-            font-size: 0.9rem; 
-            margin-bottom: 10px; 
-            border-bottom: 1px solid rgba(0,0,0,0.05); 
-            padding-bottom: 5px; 
-        }
+        .info-row { display: flex; justify-content: space-between; width: 100%; font-size: 0.9rem; margin-bottom: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 6px; }
 
-        /* Навигация */
+        /* Стрелки навигации */
         .nav-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--white);
-            font-size: 4rem;
-            cursor: pointer;
-            opacity: 0.5;
-            transition: 0.3s;
-            z-index: 10;
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: none; border: none; color: var(--white); font-size: 4.5rem;
+            cursor: pointer; opacity: 0.4; transition: 0.3s; z-index: 10;
         }
-        .nav-btn:hover { opacity: 1; }
-        .prev { left: 0; }
-        .next { right: 0; }
+        .nav-btn:hover { opacity: 1; transform: translateY(-50%) scale(1.1); }
+        .prev { left: -60px; }
+        .next { right: -60px; }
 
-        /* Адаптивность для планшетов и телефонов */
-        @media (max-width: 1024px) {
-            .coffee-card { flex: 0 0 calc(50% - 10px); } /* 2 в ряд */
+        /* --- FOOTER --- */
+        footer { background: #1E1B1A; color: var(--white); padding: 60px 20px; text-align: center; font-size: 0.9rem; opacity: 0.8; }
+
+        /* Адаптация под экраны */
+        @media (max-width: 1100px) {
+            .coffee-card { flex: 0 0 calc(50% - 15px); } /* 2 в ряд */
+            .menu-container { padding: 0 50px; }
         }
-        @media (max-width: 600px) {
-            .slider-container { padding: 0 20px; }
-            .nav-btn { display: none; }
+        @media (max-width: 650px) {
             .coffee-card { flex: 0 0 100%; } /* 1 в ряд */
-            h2 { font-size: 2.5rem; }
+            .nav-btn { display: none; }
+            .menu-container { padding: 0 20px; }
+            .menu-header { flex-direction: column; align-items: center; gap: 15px; }
+            .hero-content h1 { font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-<section class="menu-section">
-    <h2>Меню</h2>
-    <div class="tabs">
-        <span class="tab active">Классика</span> | <span class="tab">Авторские</span> | <span class="tab">Десерты</span> | <span class="tab">Выпечка</span>
-    </div>
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <div class="hero-content">
+            <p>Уютная кофейня в твоем ритме</p>
+            <h1>Между делом</h1>
+            <a href="#menu" class="btn-hero">Наше меню</a>
+        </div>
+    </header>
 
-    <div class="slider-container">
-        <button class="nav-btn prev" onclick="moveSlider(-300)">‹</button>
-        
-        <div class="cards-viewport" id="slider">
-            <div class="coffee-card">
-                <img src="path_to_espresso.png" alt="Эспрессо">
-                <h3>Эспрессо</h3>
-                <div class="info-row"><span>Объем/Вес:</span><strong>60мл</strong></div>
-                <div class="info-row"><span>Цена:</span><strong>150₽</strong></div>
+    <!-- MENU SECTION -->
+    <section class="menu-section" id="menu">
+        <div class="menu-container">
+            <div class="menu-header">
+                <h2>Меню</h2>
+                <div class="menu-tabs">
+                    <span class="tab active">Классика</span> | 
+                    <span class="tab">Авторские</span> | 
+                    <span class="tab">Десерты</span> | 
+                    <span class="tab">Выпечка</span>
+                </div>
             </div>
-            <div class="coffee-card">
-                <img src="path_to_americano.png" alt="Американо">
-                <h3>Американо</h3>
-                <div class="info-row"><span>Объем/Вес:</span><strong>120мл</strong></div>
-                <div class="info-row"><span>Цена:</span><strong>250₽</strong></div>
-            </div>
-            <div class="coffee-card">
-                <img src="path_to_cappuccino.png" alt="Капучино">
-                <h3>Капучино</h3>
-                <div class="info-row"><span>Объем/Вес:</span><strong>250мл</strong></div>
-                <div class="info-row"><span>Цена:</span><strong>350₽</strong></div>
-            </div>
-            <div class="coffee-card">
-                <img src="path_to_latte.png" alt="Латте">
-                <h3>Латте</h3>
-                <div class="info-row"><span>Объем/Вес:</span><strong>300мл</strong></div>
-                <div class="info-row"><span>Цена:</span><strong>390₽</strong></div>
+
+            <div class="slider-wrapper">
+                <button class="nav-btn prev" onclick="scrollM(-350)">‹</button>
+                
+                <div class="cards-viewport" id="slider">
+                    <!-- Карточка 1 -->
+                    <div class="coffee-card">
+                        <img src="https://cdn-icons-png.flaticon.com" alt="Эспрессо">
+                        <h3>Эспрессо</h3>
+                        <div class="info-row"><span>Объем:</span><strong>60мл</strong></div>
+                        <div class="info-row"><span>Цена:</span><strong>150₽</strong></div>
+                    </div>
+                    <!-- Карточка 2 -->
+                    <div class="coffee-card">
+                        <img src="https://cdn-icons-png.flaticon.com" alt="Американо">
+                        <h3>Американо</h3>
+                        <div class="info-row"><span>Объем:</span><strong>120мл</strong></div>
+                        <div class="info-row"><span>Цена:</span><strong>250₽</strong></div>
+                    </div>
+                    <!-- Карточка 3 -->
+                    <div class="coffee-card">
+                        <img src="https://cdn-icons-png.flaticon.com" alt="Капучино">
+                        <h3>Капучино</h3>
+                        <div class="info-row"><span>Объем:</span><strong>250мл</strong></div>
+                        <div class="info-row"><span>Цена:</span><strong>350₽</strong></div>
+                    </div>
+                    <!-- Карточка 4 -->
+                    <div class="coffee-card">
+                        <img src="https://cdn-icons-png.flaticon.com" alt="Латте">
+                        <h3>Латте</h3>
+                        <div class="info-row"><span>Объем:</span><strong>300мл</strong></div>
+                        <div class="info-row"><span>Цена:</span><strong>390₽</strong></div>
+                    </div>
+                    <!-- Карточка 5 (Скрытая до прокрутки) -->
+                    <div class="coffee-card">
+                        <img src="https://cdn-icons-png.flaticon.com" alt="Раф">
+                        <h3>Раф Кофе</h3>
+                        <div class="info-row"><span>Объем:</span><strong>300мл</strong></div>
+                        <div class="info-row"><span>Цена:</span><strong>420₽</strong></div>
+                    </div>
+                </div>
+
+                <button class="nav-btn next" onclick="scrollM(350)">›</button>
             </div>
         </div>
+    </section>
 
-        <button class="nav-btn next" onclick="moveSlider(300)">›</button>
-    </div>
-</section>
+    <footer>
+        <p>© 2024 Между делом Café • Сделано с любовью к кофе</p>
+    </footer>
 
-<script>
-    function moveSlider(distance) {
-        document.getElementById('slider').scrollBy({ left: distance, behavior: 'smooth' });
-    }
-</script>
+    <script>
+        function scrollM(val) {
+            document.getElementById('slider').scrollBy({ left: val, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
