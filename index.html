@@ -3,253 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Между делом | Кофейня</title>
+    <title>Меню Кофейни</title>
     <link href="https://fonts.googleapis.com" rel="stylesheet">
     <style>
         :root {
-            --bg-soft: #FDFBFA;      /* Мягкий фон */
-            --accent: #AD5D4E;       /* Терракотовый акцент */
-            --dark: #1E1B1A;         /* Почти черный для контраста */
-            --text-main: #4A4442;    /* Основной текст */
+            --coffee-bg: #5E463E; /* Темный фон секции */
+            --card-bg: #E3D9D0;   /* Светлый фон карточек */
+            --text-dark: #2C1B14;
             --white: #ffffff;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        html { scroll-behavior: smooth; }
-        
-        body { 
-            font-family: 'Montserrat', sans-serif; 
-            background-color: var(--bg-soft); 
-            color: var(--text-main);
-            line-height: 1.6;
-        }
-
-        /* Обложка с ярким акцентом */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                        url('images/cafe-background.png') center/cover no-repeat;
-            position: relative;
-        }
-
-        .hero-content { color: var(--white); z-index: 2; padding: 0 20px; }
-        
-        .hero-content h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(3.5rem, 12vw, 6rem); 
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-
-        .hero-content p { 
-            font-size: 0.9rem; 
-            letter-spacing: 5px; 
-            text-transform: uppercase; 
-            margin-bottom: 40px;
-            opacity: 0.9;
-        }
-
-        /* Модная кнопка скругленная */
-        .btn {
-            display: inline-block;
-            padding: 20px 50px;
-            background-color: var(--accent);
-            color: var(--white);
-            border-radius: 50px; /* Полностью круглая форма сейчас в моде */
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px rgba(173, 93, 78, 0.2);
-        }
-
-        .btn:hover { 
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(173, 93, 78, 0.4);
-            background-color: #964d40;
-        }
+        body { font-family: 'Montserrat', sans-serif; margin: 0; background-color: #f4f4f4; }
 
         /* Секция Меню */
-        section { padding: 100px 24px; max-width: 1200px; margin: 0 auto; }
-        
-        .section-tag { 
-            display: block; 
-            color: var(--accent); 
-            font-weight: 600; 
-            font-size: 0.8rem; 
-            text-transform: uppercase; 
-            letter-spacing: 3px;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-
-        h2 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: clamp(2.5rem, 5vw, 3.5rem); 
-            margin-bottom: 60px; 
-            text-align: center;
-            color: var(--dark);
-        }
-
-        /* Сетка категорий меню */
-        .menu-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
-        }
-
-        .menu-box {
-            background: var(--white);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.03); /* Еле заметная тень */
-            transition: 0.3s;
-        }
-
-        .menu-box:hover { transform: translateY(-5px); }
-
-        .menu-box h3 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 2rem; 
-            margin-bottom: 30px; 
-            color: var(--dark);
-        }
-
-        .menu-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #F0EAE6;
-            padding-bottom: 8px;
-        }
-
-        .price { font-weight: 600; color: var(--accent); }
-
-        /* Блок бронирования (инверсия цвета) */
-        .cta-section {
-            background-color: var(--accent);
-            color: var(--white);
-            text-align: center;
-            padding: 80px 40px;
-            border-radius: 40px;
-            margin: 40px auto;
-            max-width: 1000px;
-        }
-
-        .cta-section h2 { color: var(--white); margin-bottom: 20px; }
-        .cta-btn { background: var(--white); color: var(--accent); }
-
-        /* Контакты (темный минимализм) */
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
+        .menu-section {
+            background-color: var(--coffee-bg);
             padding: 80px 20px;
+            color: var(--white);
             text-align: center;
         }
 
-        .footer-grid {
+        .menu-header {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: center;
             gap: 40px;
-            max-width: 1100px;
+            margin-bottom: 50px;
+        }
+
+        .menu-header h2 { font-size: 3.5rem; margin: 0; font-weight: 400; }
+
+        /* Табы (категории) */
+        .menu-tabs { display: flex; gap: 20px; font-size: 1rem; opacity: 0.8; }
+        .menu-tabs span { cursor: pointer; transition: 0.3s; }
+        .menu-tabs span:hover { opacity: 1; text-decoration: underline; }
+        .active-tab { text-decoration: underline; opacity: 1 !important; }
+
+        /* Контейнер для карточек */
+        .cards-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .footer-item h4 { color: var(--accent); margin-bottom: 15px; text-transform: uppercase; font-size: 0.8rem; }
+        /* Карточка */
+        .coffee-card {
+            background-color: var(--card-bg);
+            color: var(--text-dark);
+            border-radius: 40px; /* Сильное закругление как на фото */
+            padding: 40px 20px;
+            width: 240px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
 
-        @media (max-width: 600px) {
-            .menu-box { padding: 25px; }
-            .cta-section { border-radius: 0; }
+        .coffee-card:hover { transform: translateY(-10px); }
+
+        .coffee-card img {
+            width: 140px;
+            height: auto;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+        }
+
+        .coffee-card h3 { font-size: 1.8rem; margin: 10px 0 20px; font-weight: 500; }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 4px;
+        }
+
+        .label { opacity: 0.6; }
+        .value { font-weight: 600; }
+
+        @media (max-width: 768px) {
+            .menu-header { flex-direction: column; align-items: center; gap: 15px; }
+            .coffee-card { width: 90%; max-width: 300px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="hero">
-        <div class="hero-content">
-            <p>Specialty Coffee Shop</p>
-            <h1>Между делом</h1>
-            <a href="#menu" class="btn">Наше меню</a>
+<section class="menu-section">
+    <div class="menu-header">
+        <h2>Меню</h2>
+        <div class="menu-tabs">
+            <span class="active-tab">Классика</span>
+            <span>|</span>
+            <span>Авторские</span>
+            <span>|</span>
+            <span>Без кофе</span>
+            <span>|</span>
+            <span>Выпечка</span>
         </div>
-    </header>
-
-    <section id="menu">
-        <span class="section-tag">Выбор гостей</span>
-        <h2>Меню & Десерты</h2>
-        
-        <div class="menu-container">
-            <!-- Категория 1 -->
-            <div class="menu-box">
-                <h3>Кофе</h3>
-                <div class="menu-item">
-                    <span>Эспрессо</span>
-                    <span class="price">120 ₽</span>
-                </div>
-                <div class="menu-item">
-                    <span>Капучино</span>
-                    <span class="price">180 ₽</span>
-                </div>
-                <div class="menu-item">
-                    <span>Латте Халва</span>
-                    <span class="price">240 ₽</span>
-                </div>
-                <div class="menu-item">
-                    <span>Бамбл кофе</span>
-                    <span class="price">280 ₽</span>
-                </div>
-            </div>
-
-            <!-- Категория 2 -->
-            <div class="menu-box">
-                <h3>Еда</h3>
-                <div class="menu-item">
-                    <span>Круассан с лососем</span>
-                    <span class="price">420 ₽</span>
-                </div>
-                <div class="menu-item">
-                    <span>Бенедикт на бриоши</span>
-                    <span class="price">390 ₽</span>
-                </div>
-                <div class="menu-item">
-                    <span>Сырники с кремом</span>
-                    <span class="price">310 ₽</span>
-                </div>
-                <div class="menu-item">
-                    <span>Тирамису</span>
-                    <span class="price">260 ₽</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="cta-section">
-        <h2>Заглядывайте в гости</h2>
-        <p style="margin-bottom: 30px;">Лучший кофе — тот, что выпит в хорошей компании.</p>
-        <a href="https://t.me" class="btn cta-btn">Забронировать стол</a>
     </div>
 
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-item">
-                <h4>Локация</h4>
-                <p>ул. Кофейная, д. 5</p>
+    <div class="cards-container">
+        <!-- Эспрессо -->
+        <div class="coffee-card">
+            <img src="https://img.freepik.com" alt="Эспрессо">
+            <h3>Эспрессо</h3>
+            <div class="info-row">
+                <span class="label">Объем:</span>
+                <span class="value">60мл</span>
             </div>
-            <div class="footer-item">
-                <h4>Время</h4>
-                <p>08:00 – 22:00</p>
-            </div>
-            <div class="footer-item">
-                <h4>Связь</h4>
-                <p>@mezhdu_delom</p>
+            <div class="info-row">
+                <span class="label">Цена:</span>
+                <span class="value">150руб</span>
             </div>
         </div>
-    </footer>
+
+        <!-- Американо -->
+        <div class="coffee-card">
+            <img src="https://img.freepik.com" alt="Американо">
+            <h3>Американо</h3>
+            <div class="info-row">
+                <span class="label">Объем:</span>
+                <span class="value">120мл</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Цена:</span>
+                <span class="value">250руб</span>
+            </div>
+        </div>
+
+        <!-- Капучино -->
+        <div class="coffee-card">
+            <img src="https://img.freepik.com" alt="Капучино">
+            <h3>Капучино</h3>
+            <div class="info-row">
+                <span class="label">Объем:</span>
+                <span class="value">250мл</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Цена:</span>
+                <span class="value">350руб</span>
+            </div>
+        </div>
+
+        <!-- Латте -->
+        <div class="coffee-card">
+            <img src="https://img.freepik.com" alt="Латте">
+            <h3>Латте</h3>
+            <div class="info-row">
+                <span class="label">Объем:</span>
+                <span class="value">300мл</span>
+            </div>
+            <div class="info-row">
+                <span class="label">Цена:</span>
+                <span class="value">390руб</span>
+            </div>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
